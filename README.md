@@ -1,8 +1,8 @@
-# U.S. Web Design Standards - Drupal theme
+# U.S. Web Design Standards – Drupal theme
 
-*Current status:* very much a work in progress.
+**Current status:** very much a work in progress.
 
-*Context:* https://github.com/18F/web-design-standards/issues/852
+**Context:** https://github.com/18F/web-design-standards/issues/852
 
 ### Public domain
 
