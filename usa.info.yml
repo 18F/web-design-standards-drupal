@@ -1,1 +1,34 @@
-name = U.S. Web Design Standards
+name: U.S. Web Design Standards
+description: 'Built to use the U.S. Web Design Standards, a library of UI components for U.S. government websites.'
+type: theme
+package: USA
+core: 8.x
+version: VERSION
+regions:
+  navigation: 'Navigation'
+  header: 'Top Bar'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+stylesheets-remove:
+  - core/misc/dropbutton/dropbutton.css
+  - core/misc/dropbutton/dropbutton.theme.css
+  - core/misc/vertical-tabs.css
+  - core/modules/system/css/components/action-links.theme.css
+  - core/modules/system/css/components/button.theme.css
+  - core/modules/system/css/components/details.theme.css
+  - core/modules/system/css/components/exposed-filters.theme.css
+  - core/modules/system/css/components/form.theme.css
+  - core/modules/system/css/components/inline-form.theme.css
+  - core/modules/system/css/components/menu.theme.css
+  - core/modules/system/css/components/messages.theme.css
+  - core/modules/system/css/components/pager.theme.css
+  - core/modules/system/css/components/tabs.theme.css
+
+libraries:
+  - usa/assets
