@@ -1,10 +1,11 @@
 assets:
   version: VERSION
   css:
-    css/google-fonts.css: {}
-    css/main.css: {}
-    css/main.scss: {}
-    css/normalize.min.css: {}
+    theme:
+      assets/css/google-fonts.css: {}
+      assets/css/main.css: {}
+      assets/css/main.scss: {}
+      assets/css/normalize.min.css: {}
   js:
     js/components.js: {}
     js/vendor/html5shiv.js: {}
