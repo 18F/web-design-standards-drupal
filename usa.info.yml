@@ -28,6 +28,5 @@ stylesheets-remove:
   - core/modules/system/css/components/messages.theme.css
   - core/modules/system/css/components/pager.theme.css
   - core/modules/system/css/components/tabs.theme.css
-
 libraries:
   - usa/assets
