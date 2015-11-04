@@ -6,7 +6,6 @@ core: 8.x
 version: VERSION
 regions:
   navigation: 'Navigation'
-  header: 'Top Bar'
   highlighted: 'Highlighted'
   help: 'Help'
   content: 'Content'
