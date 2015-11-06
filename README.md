@@ -2,7 +2,12 @@
 
 **Current status:** very much a work in progress.
 
-**Context:** https://github.com/18F/web-design-standards/issues/852
+**Background:**
+As of 2012, an estimated 24 percent of U.S. government websites (including whitehouse.gov, most famously) were Drupal sites. That number has only continued to increase.
+
+Just as the [Bootstrap](http://drupal.org/project/bootstrap) theme bridges the gap between Drupal and the [Bootstrap Framework](http://getbootstrap.com), a USWDS theme will make it simpler and easier for Drupal site administrators to use the U.S. Web Design Standards. A Drupal 8 version of the theme will additionally make it easier for site administrators to update to this major new version of Drupal.
+
+**Further context:** https://github.com/18F/web-design-standards/issues/852
 
 ### Public domain
 
