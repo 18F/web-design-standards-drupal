@@ -34,14 +34,14 @@
     <?php print $page_top; ?>
     <?php print $page; ?>
     <?php print $page_bottom; ?>
+
+    <?php print $scripts; ?>
+
+    <!--[if lt IE 9]>
+      <script src="<?php print $theme_path; ?>/assets/js/vendor/html5shiv.js"></script>
+      <script src="<?php print $theme_path; ?>/assets/js/vendor/respond.js"></script>
+      <script src="<?php print $theme_path; ?>/assets/js/vendor/selectivizr-min.js"></script>
+    <![endif]-->
   </body>
-
-  <?php print $scripts; ?>
-
-  <!--[if lt IE 9]>
-    <script src="<?php print $theme_path; ?>/assets/js/vendor/html5shiv.js"></script>
-    <script src="<?php print $theme_path; ?>/assets/js/vendor/respond.js"></script>
-    <script src="<?php print $theme_path; ?>/assets/js/vendor/selectivizr-min.js"></script>
-  <![endif]-->
 
 </html>
