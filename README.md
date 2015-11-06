@@ -1,6 +1,6 @@
 # U.S. Web Design Standards – Drupal theme
 
-**Current status:** very much a work in progress.
+**Current status:** very much a work in progress. Branches are being developed simultaneously for Drupal 7 and 8. For further details, see the [waffle.io board](https://waffle.io/18F/web-design-standards-drupal).
 
 **Background:**
 As of 2012, an estimated 24 percent of U.S. government websites (including whitehouse.gov, most famously) were Drupal sites. That number has only continued to increase.
