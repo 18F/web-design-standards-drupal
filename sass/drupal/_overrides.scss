@@ -1,0 +1,176 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Table of Contents
+//
+//  1. Core Module Overrides
+//    #Toolbar
+//
+//  2. Drupal Styleguide Components
+//    #Tabs
+//    #Forms
+//    #Status Messages
+//    #Menus
+//
+//  3. Layout
+//
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  #Toolbar
+//
+////////////////////////////////////////////////////////////////////////////////
+
+.toolbar ul {
+  display: block;
+}
+
+.toolbar ul li:before {
+  display: none;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  #Tabs
+//
+////////////////////////////////////////////////////////////////////////////////
+
+.tabs {
+  border-bottom: 3px solid $color-primary;
+  width: 100%;
+}
+
+.usa-tab {
+  display: inline-block;
+  margin-bottom: -1px;
+  margin-right: 4px;
+}
+
+.usa-tab:before {
+  content: '';
+}
+
+.usa-tab a {
+  background-color: $color-gray;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: .4rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  text-decoration: none;
+}
+
+.usa-tab a:hover {
+  background-color: $color-cool-blue-light;
+}
+
+.usa-tab a.active {
+  background-color: $color-primary;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  #Forms
+//
+////////////////////////////////////////////////////////////////////////////////
+
+@media screen and (min-width: 600px) {
+  form {
+    max-width: initial;
+  }
+}
+
+input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="file"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+textarea,
+select {
+  max-width: initial;
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  #Status Messages
+//
+////////////////////////////////////////////////////////////////////////////////
+
+.usa-alert-status {
+  background-color: #E8F5FA;
+  background-image: url("../assets/img/alerts/info.png");
+  background-image: url("../assets/img/alerts/info.svg");
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  #Menus
+//
+////////////////////////////////////////////////////////////////////////////////
+
+h6 {
+  &.usa-heading-alt {
+    margin-top: 4rem;
+  }
+}
+
+.usa-heading-alt {
+  border-bottom: 1px solid $color-gray;
+  padding-bottom: .8rem;
+}
+
+.usa-sidenav-list {
+  .active {
+    // could be added by replacing the 'active' class with 'usa-current'
+    @include usa-current();
+  }
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  #Default Layout (2 Sidebars)
+//
+////////////////////////////////////////////////////////////////////////////////
+
+.sidebar-first .region-content {
+  // float: left;
+  // display: block;
+  // margin-right: 2.35765%;
+  // width: 65.88078%;
+}
+
+.sidebar-first .sidebars {
+  // float: left;
+  // display: block;
+  // margin-right: 2.35765%;
+  // width: 31.76157%;
+}
+
+.sidebar-first .sidebars:last-child {
+  // margin-right: 0;
+}
