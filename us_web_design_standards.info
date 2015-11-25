@@ -48,7 +48,7 @@ stylesheets[all][] = assets/css/google-fonts.css
 stylesheets[all][] = assets/css/main.css
 
 ; our custom styles come in after the standards styles for cascading reasons
-stylesheets[all][] = sass/style.css
+stylesheets[all][] = css/style.css
 
 ; we may need to remove jquery here and recommend jquery_update module to users
 scripts[] = assets/js/vendor/jquery-1.11.3.min.js
