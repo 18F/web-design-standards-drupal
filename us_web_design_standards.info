@@ -1,8 +1,8 @@
-name        = U.S. Web Design Standards
+name = U.S. Web Design Standards
 description = Built to use the U.S. Web Design Standards, a library of UI components for U.S. government websites.
-screenshot  = screenshot.png
-core        = 7.x
-engine      = phptemplate
+screenshot = screenshot.png
+core = 7.x
+engine = phptemplate
 
 ; remove some of the system (core) CSS files
 ; we can always add these back in as we need them
@@ -56,13 +56,13 @@ scripts[] = assets/js/components.js
 scripts[] = assets/js/vendor/rem.min.js
 
 ; some default regions for now
-regions[header]         = Header
-regions[navigation]     = Navigation bar
-regions[help]           = Help
-regions[content]        = Content
-regions[sidebar_first]  = First sidebar
+regions[header] = Header
+regions[navigation] = Navigation bar
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = First sidebar
 regions[sidebar_second] = Second sidebar
-regions[footer]         = Footer
-regions[bottom]         = Page bottom
-regions[page_top]       = Page top
-regions[page_bottom]    = Page bottom
+regions[footer] = Footer
+regions[bottom] = Page bottom
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
