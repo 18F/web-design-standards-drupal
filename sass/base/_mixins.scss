@@ -7,9 +7,4 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-@mixin usa-current {
-  border-left: 4px solid $color-primary;
-  color: $color-primary;
-  font-weight: 700;
-  padding-left: 1.4rem;
-}
+@import "overrides";
