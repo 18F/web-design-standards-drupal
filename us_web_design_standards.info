@@ -1,5 +1,5 @@
-name        = US Web Design Standards
-description = Open source UI components and visual style guide to create consistency and beautiful user experiences across U.S. federal government websites.
+name        = U.S. Web Design Standards
+description = Built to use the U.S. Web Design Standards, a library of UI components for U.S. government websites.
 screenshot  = screenshot.png
 core        = 7.x
 engine      = phptemplate
