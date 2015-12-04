@@ -1,19 +1,19 @@
-name = U.S. Web Design Standards
-description = Built to use the U.S. Web Design Standards, a library of UI components for U.S. government websites.
-screenshot = screenshot.png
-core = 7.x
-engine = phptemplate
+name        = US Web Design Standards
+description = Open source UI components and visual style guide to create consistency and beautiful user experiences across U.S. federal government websites.
+screenshot  = screenshot.png
+core        = 7.x
+engine      = phptemplate
 
-;;  remove some of the system (core) CSS files
-;;  we can always add these back in as we need them
+; remove some of the system (core) CSS files
+; we can always add these back in as we need them
 stylesheets[all][] = system.admin.css
 stylesheets[all][] = system.maintenance.css
 stylesheets[all][] = system.menus.css
 stylesheets[all][] = system.messages.css
 stylesheets[all][] = system.theme.css
 
-;;  remove some core module files
-;;  we can always add these back in as we need them
+; remove some core module files
+; we can always add these back in as we need them
 stylesheets[all][] = aggregator.css
 stylesheets[all][] = block.css
 stylesheets[all][] = book.css
@@ -43,17 +43,19 @@ stylesheets[all][] = tracker.css
 stylesheets[all][] = update.css
 stylesheets[all][] = user.css
 
-;; add our own CSS files from the standards folder
+; add our own CSS files from the standards folder
 stylesheets[all][] = assets/css/google-fonts.css
 stylesheets[all][] = assets/css/main.css
-stylesheets[all][] = assets/css/overrides.css
 
-;; we may need to remove jquery here and recommend jquery_update module to users
+; our custom styles come in after the standards styles for cascading reasons
+stylesheets[all][] = css/style.css
+
+; we may need to remove jquery here and recommend jquery_update module to users
 scripts[] = assets/js/vendor/jquery-1.11.3.min.js
 scripts[] = assets/js/components.js
 scripts[] = assets/js/vendor/rem.min.js
 
-;; some default regions for now
+; some default regions for now
 regions[header] = Header
 regions[navigation] = Navigation bar
 regions[help] = Help
@@ -61,6 +63,4 @@ regions[content] = Content
 regions[sidebar_first] = First sidebar
 regions[sidebar_second] = Second sidebar
 regions[footer] = Footer
-regions[bottom] = Page bottom
-regions[page_top] = Page top
-regions[page_bottom] = Page bottom
+regions[bottom] = Bottom
