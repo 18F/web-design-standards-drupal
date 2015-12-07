@@ -7,10 +7,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  SASS CONFIGURATION
@@ -24,10 +20,6 @@ var sassOptions = {
   errLogToConsole: true,
   outputStyle: 'expanded'
 };
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -50,10 +42,6 @@ gulp.task('sass', function() {
     // Write the resulting CSS in the output (css) folder
     .pipe(gulp.dest(output))
 });
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //
