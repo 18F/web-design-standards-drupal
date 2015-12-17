@@ -1,0 +1,18 @@
+// explicitly set the charset to UTF-8 to unify it across platforms
+@charset "UTF-8";
+
+//  bring in bourbon/neat files from the assets folder
+@import '../assets/_scss/lib/bourbon/bourbon';
+@import '../assets/_scss/lib/neat/neat';
+
+//  bring in standards files from the assets folder this will allow us to
+//  utilize some core mixins and variables in our own custom SASS files
+@import "../assets/_scss/core/defaults";
+@import "../assets/_scss/core/grid-settings";
+@import "../assets/_scss/core/utilities";
+@import "../assets/_scss/core/variables";
+
+//  add the root files at the base, components, and layouts folders
+@import "base/mixins";
+@import "components/components";
+@import "layouts/layouts";
