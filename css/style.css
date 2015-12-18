@@ -5,3 +5,16 @@ html {
 *, *::after, *::before {
   box-sizing: inherit;
 }
+
+.usa-sr-only {
+  position: absolute;
+  left: -999em;
+}
+
+.toolbar ul {
+  display: block;
+}
+
+.toolbar ul li:before {
+  display: none;
+}
