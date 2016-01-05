@@ -1,0 +1,46 @@
+body.page-admin-structure .usa-width-one-fourth,
+body.page-admin-config-content-panelizer .usa-width-one-fourth {
+  width: 25%;
+  float: left;
+}
+
+body.page-admin-structure .usa-width-one-third,
+body.page-admin-config-content-panelizer .usa-width-one-third {
+  width: 33.3%;
+  float: left;
+}
+
+body.page-admin-structure .usa-width-one-half,
+body.page-admin-config-content-panelizer .usa-width-one-half {
+  width: 50%;
+  float: left;
+}
+
+body.page-admin-structure .usa-width-two-third,
+body.page-admin-config-content-panelizer .usa-width-two-third,
+body.page-admin-structure .usa-width-two-thirds,
+body.page-admin-config-content-panelizer .usa-width-two-thirds {
+  width: 66.6%;
+  float: left;
+}
+
+body.page-admin-structure .usa-width-three-fourth,
+body.page-admin-config-content-panelizer .usa-width-three-fourth {
+  width: 75%;
+  float: left;
+}
+
+body.page-admin-structure .usa-width-one-whole,
+body.page-admin-config-content-panelizer .usa-width-one-whole {
+  width: 100%;
+}
+
+body.page-admin-structure .usa-grid,
+body.page-admin-config-content-panelizer .usa-grid,
+body.page-admin-structure div.usa-grid-full,
+body.page-admin-config-content-panelizer div.usa-grid-full {
+  width: 100%;
+  clear: both;
+}
+
+
