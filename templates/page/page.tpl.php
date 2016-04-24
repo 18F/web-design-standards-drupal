@@ -75,13 +75,17 @@
  */
 ?>
 
-<div id="main" class="main-content" role="main">
+<div id="page" class="page">
 
-  <header class="header" id="header" role="banner">
+  <header id="header" class="header" role="banner">
 
     <section class="usa-banner">
       <div class="usa-grid">
-        <div class="usa-banner-content" id="main-content">
+        <div id="header-content" class="usa-banner-content">
+
+          <?php if ($logo): ?>
+            <a href="<?php print $front_page; ?>" rel="home" class="site-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+          <?php endif; ?>
 
           <?php if ($site_name): ?>
             <h1><?php print $site_name; ?></h1>
@@ -111,10 +115,15 @@
     </nav>
   <?php endif; ?>
 
-  <section class="usa-section">
+  <main id="main" class="main-content usa-section" role="main">
     <div class="usa-grid">
       <?php print $breadcrumb; ?>
       <a id="main-content"></a>
+      <?php print render($title_prefix); ?>
+      <?php if ($title): ?>
+        <h1><?php print $title; ?></h1>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
       <?php print $messages; ?>
       <?php print render($tabs); ?>
       <?php print render($page['help']); ?>
@@ -132,10 +141,10 @@
       <?php endif; ?>
 
     </div>
-  </section>
+  </main>
 
   <?php if ($page['footer']): ?>
-    <footer class="usa-section">
+    <footer class="usa-section" role="contentinfo">
       <?php print render($page['footer']); ?>
     </footer>
   <?php endif; ?>
