@@ -52,12 +52,15 @@ scripts[] = uswds-library/js/uswds.min.js
 ; our custom styles come in after the standards styles for cascading reasons
 stylesheets[all][] = css/style.css
 
-; some default regions for now
+; Custom regions for USWDS.
+regions[header_top] = Above Header
 regions[header] = Header
-regions[navigation] = Navigation bar
-regions[help] = Help
-regions[content] = Content
 regions[sidebar_first] = First sidebar
 regions[sidebar_second] = Second sidebar
 regions[footer] = Footer
-regions[bottom] = Bottom
+regions[footer_secondary] = Below Footer
+; Required Drupal regions.
+regions[help] = Help
+regions[content] = Content
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
