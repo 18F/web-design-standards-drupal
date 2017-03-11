@@ -1,0 +1,22 @@
+{
+  "name": "web-design-standards-drupal",
+  "version": "1.0.0",
+  "description": "Drupal implementation of USWDS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18F/web-design-standards-drupal.git"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN CONTRIBUTING.md",
+  "bugs": {
+    "url": "https://github.com/18F/web-design-standards-drupal/issues"
+  },
+  "homepage": "https://github.com/18F/web-design-standards-drupal#readme",
+  "dependencies": {
+    "uswds": "^1.0.0"
+  }
+}
