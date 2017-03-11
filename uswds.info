@@ -43,17 +43,14 @@ stylesheets[all][] = tracker.css
 stylesheets[all][] = update.css
 stylesheets[all][] = user.css
 
-; add our own CSS files from the standards folder
-stylesheets[all][] = assets/css/google-fonts.css
-stylesheets[all][] = assets/css/main.css
+; For easiest possible installation, the pre-compiled USWDS library is baked
+; into this theme. Subthemes may override these paths if they would like to use
+; a more advanced Sass front-end workflow.
+stylesheets[all][] = uswds-library/css/uswds.min.css
+scripts[] = uswds-library/js/uswds.min.js
 
 ; our custom styles come in after the standards styles for cascading reasons
 stylesheets[all][] = css/style.css
-
-; we may need to remove jquery here and recommend jquery_update module to users
-scripts[] = assets/js/vendor/jquery-1.11.3.min.js
-scripts[] = assets/js/components.js
-scripts[] = assets/js/vendor/rem.min.js
 
 ; some default regions for now
 regions[header] = Header
