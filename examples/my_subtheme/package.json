@@ -1,0 +1,7 @@
+{
+  "name": "my-subtheme",
+  "version": "1.0.0",
+  "dependencies": {
+    "uswds": "^1.0.0"
+  }
+}

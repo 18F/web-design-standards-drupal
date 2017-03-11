@@ -1,0 +1,24 @@
+name        = My Subtheme
+description = Subtheme of USWDS for my site.
+core        = 7.x
+base theme  = uswds
+
+; If you would like to use Sass in your front-end workflow and incorporate the
+; USWDS library in your Sass setup, then you will need to do the following:
+; 1. Run "npm install" in this subtheme.
+; 2. Uncomment the next line:
+; stylesheets[all][] = uswds-library/css/uswds.min.css
+; 3. Configure your Sass to output the compiled CSS to the folder above.
+
+; The same regions as the base theme.
+regions[header_top] = Above Header
+regions[header] = Header
+regions[sidebar_first] = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[footer] = Footer
+regions[footer_secondary] = Below Footer
+; Required Drupal regions.
+regions[help] = Help
+regions[content] = Content
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
