@@ -2,6 +2,9 @@
  * CSS in this file should be limited to:
  * - fixing incompatibilities between USWDS and Drpual
  * - adding minimal styling of Drupal elements that are missed by USWDS
+ *
+ * @TODO: Keep an eye on this file, and if it gets out of control, switch to
+ * Sass development.
  */
 
 /* Fix the styling of local tasks. */
@@ -12,6 +15,12 @@ ul.tabs.primary {
 ul.tabs.primary li {
   float: left;
   margin-right: 1em;
+}
+
+/* Fix the styling of form submit buttons. */
+.form-actions input {
+  float: left;
+  margin-top: 0;
 }
 
 /* The navigation z-index of 9000 causes issues (like with admin_menu). */
@@ -30,15 +39,37 @@ ul.tabs.primary li {
 }
 
 /* The focus outline of the logo image needs some help. */
-.usa-logo .logo-img {
-  display: inline-block;
-}
 .usa-logo .logo-img img {
   vertical-align: top;
+}
+
+/* The logo image messes up responsiveness when the navigation collapses. */
+.usa-logo .logo-img {
+  display: none;
+}
+@media screen and (min-width: 951px) {
+  .usa-logo .logo-img {
+    display: inline-block;
+  }
 }
 
 /* The first sidebar blocks get pushed down too far because of the H2. */
 .region-sidebar-first .block:first-child > h2,
 .region-sidebar-second .block:first-child > h2 {
   margin-top: 0.3em;
+}
+
+/* The core search page needs some tweaking. */
+.page-search .search-form .form-item-keys label {
+  display: block;
+}
+.page-search .search-form .form-text {
+  float: left;
+}
+.page-search .search-form .form-wrapper > .form-submit {
+  margin-top: 0;
+}
+.page-search .search-form .search-advanced legend {
+  font-size: inherit;
+  font-weight: inherit;
 }
