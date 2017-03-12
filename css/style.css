@@ -73,3 +73,8 @@ ul.tabs.primary li {
   font-size: inherit;
   font-weight: inherit;
 }
+
+/* Node teasers don't need so much margin above the title. */
+.node-teaser > h2 {
+  margin-top: 0.3em;
+}
