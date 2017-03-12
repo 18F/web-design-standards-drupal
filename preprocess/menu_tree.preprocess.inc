@@ -35,6 +35,15 @@ function uswds_preprocess_menu_tree(&$variables) {
         // Otherwise if not a submenu, add a couple of classes.
         $variables['uswds_menu_attributes']['class'][] = 'usa-nav-primary';
         $variables['uswds_menu_attributes']['class'][] = 'usa-accordion';
+        // Decide whether to include the search form.
+        if (module_exists('search') && theme_get_setting('uswds_search')) {
+          // If this is a basic header, we put the search form after the menu.
+          if (USWDS_HEADER_STYLE_BASIC == theme_get_setting('uswds_header_style')) {
+            $search_form = drupal_get_form('search_block_form');
+            $search_box = drupal_render($search_form);
+            $variables['uswds_menu_suffix'] = $search_box;
+          }
+        }
       }
       break;
 
@@ -44,6 +53,18 @@ function uswds_preprocess_menu_tree(&$variables) {
       $variables['uswds_menu_attributes']['class'][] = 'usa-nav-secondary-links';
       $variables['uswds_menu_prefix'] = '<div class="usa-nav-secondary">';
       $variables['uswds_menu_suffix'] = '</div>';
+      // Decide whether to include the search form.
+      if (module_exists('search') && theme_get_setting('uswds_search')) {
+        // If this is an extended header, we put the search form before the menu.
+        if (USWDS_HEADER_STYLE_EXTENDED == theme_get_setting('uswds_header_style')) {
+          $search_form = drupal_get_form('search_block_form');
+          $search_box = drupal_render($search_form);
+          $variables['uswds_menu_prefix'] .= $search_box;
+          // And we also add an extra item at the beginning of the menu.
+          $search_item = '<li class="js-search-button-container"><button class="usa-header-search-button js-search-button">Search</button></li>';
+          $variables['tree'] = $search_item . $variables['tree'];
+        }
+      }
       break;
 
     // Side navigation tweaks.

@@ -69,6 +69,16 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
     ),
   );
 
+  // Whether to display the search bar in the secondary menu.
+  $form['uswds_menu_fieldset']['uswds_search'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Display a search form in the navigation area?'),
+    '#default_value' => theme_get_setting('uswds_search'),
+  );
+  if (!module_exists('search')) {
+    $form['uswds_menu_fieldset']['uswds_search']['#description'] = t('Requires the core Search module to be enabled.');
+  }
+
   // Header style.
   $form['header_style_fieldset'] = array(
     '#type' => 'fieldset',

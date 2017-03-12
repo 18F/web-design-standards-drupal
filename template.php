@@ -48,3 +48,24 @@ function _uswds_get_region_for_menu($menu_name) {
   }
   return $uswds_region;
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function uswds_form_search_block_form_alter(&$form) {
+  $form['#attributes']['class'][] = 'usa-search';
+  $form['#attributes']['class'][] = 'usa-search-small';
+
+  // Add javascript classes if this is the extended header.
+  if (USWDS_HEADER_STYLE_EXTENDED == theme_get_setting('uswds_header_style')) {
+    $form['#attributes']['class'][] = 'js-search-form';
+    $form['#attributes']['class'][] = 'usa-sr-only';
+  }
+
+  // Remove the "value" so that the search button is only the icon, but hack
+  // around the submit button for accessibility reasons.
+  $form['actions']['submit']['#value'] = '';
+  $form['actions']['submit']['#attributes']['style'][] = 'display:none;';
+  $form['actions']['submit']['#prefix'] = '<button type="submit"><span class="usa-sr-only">Search';
+  $form['actions']['submit']['#suffix'] = '</button>';
+}

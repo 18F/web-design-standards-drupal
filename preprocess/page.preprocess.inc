@@ -55,6 +55,12 @@ function uswds_preprocess_page(&$variables) {
     $variables['main_menu'] = menu_tree(variable_get('menu_main_links_source'));
   }
   if (!empty($variables['secondary_menu'])) {
-    $variables['secondary_menu'] = menu_tree(variable_get('menu_secondary_links_source'));
+    // Only display the secondary menu with the extended header.
+    if ($variables['header_extended']) {
+      $variables['secondary_menu'] = menu_tree(variable_get('menu_secondary_links_source'));
+    }
+    else {
+      $variables['secondary_menu'] = FALSE;
+    }
   }
 }
