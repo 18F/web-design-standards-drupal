@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom theme setting form elements for the USWDS theme.
  */
