@@ -10,8 +10,10 @@ include_once(__DIR__ . '/includes/uswds.constants.inc');
  * Implements hook_form_system_theme_settings_alter().
  */
 function uswds_form_system_theme_settings_alter(&$form, $form_state) {
-  $menu_options = menu_get_menus();
+  $menu_options = array('' => t('-- None --'));
+  $menu_options += menu_get_menus();
   $menu_options[USWDS_MENU_PATTERN_OPTION] = t('-- Use a wildcard pattern --');
+
   $pattern_description = t('Any menu whose machine name matches this pattern will be treated as this type of menu. For example, entering "menu-og" here will match "menu-og-123".');
 
   // Menu settings.
