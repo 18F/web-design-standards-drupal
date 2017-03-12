@@ -1,7 +1,44 @@
-html {
-  box-sizing: border-box;
+/**
+ * CSS in this file should be limited to:
+ * - fixing incompatibilities between USWDS and Drpual
+ * - adding minimal styling of Drupal elements that are missed by USWDS
+ */
+
+/* Fix the styling of local tasks. */
+ul.tabs.primary {
+  list-style-type: none;
+  padding-left: 0;
+}
+ul.tabs.primary li {
+  float: left;
+  margin-right: 1em;
 }
 
-*, *::after, *::before {
-  box-sizing: inherit;
+/* The navigation z-index of 9000 causes issues (like with admin_menu). */
+.usa-nav {
+  z-index: 599;
+}
+
+/* Since there are no breadcrumb guidelines in USWDS yet, add something here. */
+.breadcrumb a {
+  color: #5b616b;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #0071bc;
+}
+
+/* The focus outline of the logo image needs some help. */
+.usa-logo .logo-img {
+  display: inline-block;
+}
+.usa-logo .logo-img img {
+  vertical-align: top;
+}
+
+/* The first sidebar blocks get pushed down too far because of the H2. */
+.region-sidebar-first .block:first-child > h2,
+.region-sidebar-second .block:first-child > h2 {
+  margin-top: 0.3em;
 }
