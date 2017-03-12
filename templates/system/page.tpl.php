@@ -5,10 +5,31 @@
  * page. Credit goes to the Bartik team for this awesome documentation!
  *
  * The doctype, html, head and body tags are not in this template. Instead they
- * can be found in the html.tpl.php template normally located in the directory
- * above.
+ * can be found in the html.tpl.php template normally located in this directory.
  *
  * Available variables:
+ *
+ * USWDS-specific variables:
+ * - $base_theme_path: The URL path to the actual "uswds" theme, even if this
+ *   template is in a subtheme.
+ * - $footer_agency: Whether to display info about an agency in the footer. Also
+ *   available are these related variables:
+ *   - $footer_agency_name
+ *   - $footer_agency_url
+ *   - $footer_agency_logo
+ * - $content_class: A grid-related CSS class that should be placed on the
+ *   main content area (separate from the sidebars).
+ * - $header_style: What type of header is active ("extended" or "basic").
+ * - $header_basic: TRUE if $header_style is "basic".
+ * - $header_extended: TRUE if $header_style is "extended".
+ * - $header_classes: CSS classes that need to be placed on the header area.
+ * - $footer_style: What type of footer is active ("slim", "big", "medium").
+ * - $footer_classes: CSS classes that need to be placed on the footer area.
+ * - $footer_menu: A render array for the footer menu.
+ * - $main_menu: A render array for the primary navigation (which is different
+ *   than the usual $main_menu array of links).
+ * - $secondary_menu: A render array for the secondary navigation (which is
+ *   different than the usual $secondary_menu array of links).
  *
  * General utility variables:
  * - $base_path: The base URL path of the Drupal installation. At the very
@@ -36,10 +57,8 @@
  *   make the site slogan visually hidden, but still accessible.
  *
  * Navigation:
- * - $main_menu (array): An array containing the Main menu links for the
- *   site, if they have been configured.
- * - $secondary_menu (array): An array containing the Secondary menu links for
- *   the site, if they have been configured.
+ * - $main_menu: See the USWDS-specific section above.
+ * - $secondary_menu: See the USWDS-specific section above.
  * - $breadcrumb: The breadcrumb trail for the current page.
  *
  * Page content (in order of occurrence in the default page.tpl.php):
@@ -63,14 +82,14 @@
  *   comment/reply/12345).
  *
  * Regions:
- * - $page['header']: Items for the header region.
- * - $page['navigation']: Items for the featured region.
+ * - $page['header_top']: Items to go above the header.
+ * - $page['header']: Items for the header/navigation region.
  * - $page['help']: Dynamic help text, mostly for admin pages.
  * - $page['content']: The main content of the current page.
  * - $page['sidebar_first']: Items for the first sidebar.
  * - $page['sidebar_second']: Items for the second sidebar.
- * - $page['footer']: Items for the footer region.
- * - $page['bottom']: Items for the bottom region.
+ * - $page['footer']: Items for the primary footer region.
+ * - $page['footer_secondary']: Items for the secondary footer region.
  *
  */
 ?>
@@ -108,11 +127,11 @@
         <?php endif; ?>
 
         <?php if ($site_name): ?>
-          <h1>
+          <em class="usa-logo-text">
             <a href="<?php print $front_page ?>" accesskey="1" title="<?php print t('Home'); ?>" aria-label="Home">
               <?php print $site_name; ?>
             </a>
-          </h1>
+          </em>
         <?php endif; ?>
 
           <?php if ($site_slogan): ?>
