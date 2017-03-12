@@ -5,6 +5,7 @@
  * Definition of constants for USWDS theme.
  */
 
+define('USWDS_MENU_NONE', 'none');
 define('USWDS_MENU_REGION_PRIMARY', 'uswds_menu_primary');
 define('USWDS_MENU_REGION_SECONDARY', 'uswds_menu_secondary');
 define('USWDS_MENU_REGION_SIDE', 'uswds_menu_side');

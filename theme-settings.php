@@ -10,7 +10,7 @@ include_once(__DIR__ . '/includes/uswds.constants.inc');
  * Implements hook_form_system_theme_settings_alter().
  */
 function uswds_form_system_theme_settings_alter(&$form, $form_state) {
-  $menu_options = array('' => t('-- None --'));
+  $menu_options[USWDS_MENU_NONE] = t('-- None --');
   $menu_options += menu_get_menus();
   $menu_options[USWDS_MENU_PATTERN_OPTION] = t('-- Use a wildcard pattern --');
 
@@ -21,44 +21,12 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
     '#type' => 'fieldset',
     '#title' => t('USWDS menu settings'),
   );
-  // Primary menus.
-  $form['uswds_menu_fieldset'][USWDS_MENU_REGION_PRIMARY] = array(
-    '#type' => 'select',
-    '#options' => $menu_options,
-    '#title' => t('Primary menu'),
-    '#default_value' => theme_get_setting(USWDS_MENU_REGION_PRIMARY),
-    '#description' => t('Choose a menu to treat as the primary menu.'),
-  );
-  $form['uswds_menu_fieldset'][USWDS_MENU_REGION_PRIMARY . '_pattern'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Primary menu wildcard pattern'),
-    '#default_value' => theme_get_setting(USWDS_MENU_REGION_PRIMARY . '_pattern'),
-    '#description' => $pattern_description,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="' . USWDS_MENU_REGION_PRIMARY . '"]' => array('value' => USWDS_MENU_PATTERN_OPTION),
-      ),
-    ),
-  );
 
-  // The secondary menu.
-  $form['uswds_menu_fieldset'][USWDS_MENU_REGION_SECONDARY] = array(
-    '#type' => 'select',
-    '#options' => $menu_options,
-    '#title' => t('Secondary menu'),
-    '#default_value' => theme_get_setting(USWDS_MENU_REGION_SECONDARY),
-    '#description' => t('Choose a menu to treat as the secondary menu.'),
-  );
-  $form['uswds_menu_fieldset'][USWDS_MENU_REGION_SECONDARY . '_pattern'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Secondary menu wildcard pattern'),
-    '#default_value' => theme_get_setting(USWDS_MENU_REGION_SECONDARY . '_pattern'),
-    '#description' => $pattern_description,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="' . USWDS_MENU_REGION_SECONDARY . '"]' => array('value' => USWDS_MENU_PATTERN_OPTION),
-      ),
-    ),
+  // Some help text about primary/secondary menus.
+  $form['uswds_menu_fieldset']['menu-help'] = array(
+    '#markup' => t('NOTE: To set sources for your primary and secondary navigation, go to !link.', array(
+      '!link' => l('/admin/structure/menu/settings', 'admin/structure/menu/settings')
+    )),
   );
 
   // The side menu.

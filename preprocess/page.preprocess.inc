@@ -44,4 +44,17 @@ function uswds_preprocess_page(&$variables) {
   // Decide on the type of footer.
   $variables['footer_style'] = 'usa-footer-' . theme_get_setting('uswds_footer_style');
   $variables['footer_classes'] = 'usa-footer ' . $variables['footer_style'];
+
+  // Decide on the menus.
+  $footer_menu = theme_get_setting(USWDS_MENU_REGION_FOOTER);
+  if ($footer_menu && USWDS_MENU_NONE != $footer_menu && USWDS_MENU_PATTERN_OPTION != $footer_menu) {
+    $variables['footer_menu'] = menu_tree($footer_menu);
+  }
+  // We need to hijack the normal main_menu and secondary_menu variables.
+  if (!empty($variables['main_menu'])) {
+    $variables['main_menu'] = menu_tree(variable_get('menu_main_links_source'));
+  }
+  if (!empty($variables['secondary_menu'])) {
+    $variables['secondary_menu'] = menu_tree(variable_get('menu_secondary_links_source'));
+  }
 }

@@ -21,21 +21,25 @@ function _uswds_get_region_for_menu($menu_name) {
   if (!isset($uswds_region)) {
     $uswds_region = FALSE;
     $uswds_regions = array(
-      USWDS_MENU_REGION_PRIMARY => theme_get_setting(USWDS_MENU_REGION_PRIMARY),
-      USWDS_MENU_REGION_SECONDARY => theme_get_setting(USWDS_MENU_REGION_SECONDARY),
+      USWDS_MENU_REGION_PRIMARY => variable_get('menu_main_links_source', USWDS_MENU_NONE),
+      USWDS_MENU_REGION_SECONDARY => variable_get('menu_secondary_links_source', USWDS_MENU_NONE),
       USWDS_MENU_REGION_SIDE => theme_get_setting(USWDS_MENU_REGION_SIDE),
       USWDS_MENU_REGION_FOOTER => theme_get_setting(USWDS_MENU_REGION_FOOTER),
     );
     foreach ($uswds_regions as $region => $configured_menu) {
-      // If the menu matches exactly, we can stop.
-      if ($menu_name == $configured_menu) {
+      if (USWDS_MENU_NONE == $configured_menu || empty($configured_menu)) {
+        continue;
+      }
+      // If the menu matches exactly, we can stop looping.
+      elseif ($menu_name == $configured_menu) {
         $uswds_region = $region;
         break;
       }
       // If the region is configured to use a pattern, check that for a match.
-      if (USWDS_MENU_PATTERN_OPTION == $configured_menu) {
+      elseif (USWDS_MENU_PATTERN_OPTION == $configured_menu) {
         $pattern = theme_get_setting($region . '_pattern');
         if (!empty($pattern) && strpos($menu_name, $pattern) !== FALSE) {
+          // If we found a match, we can stop looping.
           $uswds_region = $region;
           break;
         }
