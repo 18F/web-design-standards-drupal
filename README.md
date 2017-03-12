@@ -1,8 +1,10 @@
 # U.S. Web Design Standards – Drupal theme
 
-**Current status:** very much a work in progress.
+**Current status:** Usable, but still under development.
 
 **Context:** https://github.com/18F/web-design-standards/issues/852
+
+**USWDS library:** The full compiled USWDS library is in the /assets folder.
 
 ### Public domain
 

@@ -7,7 +7,7 @@ base theme  = uswds
 ; USWDS library in your Sass setup, then you will need to do the following:
 ; 1. Run "npm install" in this subtheme.
 ; 2. Uncomment the next line:
-; stylesheets[all][] = uswds-library/css/uswds.min.css
+; stylesheets[all][] = assets/css/uswds.min.css
 ; 3. Configure your Sass to output the compiled CSS to the folder above.
 
 ; The same regions as the base theme.
@@ -28,4 +28,4 @@ settings[uswds_header_style] = basic
 settings[uswds_footer_style] = slim
 settings[uswds_footer_agency] = TRUE
 settings[uswds_footer_agency_name] = Agency Name
-settings[uswds_footer_agency_logo] = uswds-library/img/logo-img.png
+settings[uswds_footer_agency_logo] = assets/img/logo-img.png

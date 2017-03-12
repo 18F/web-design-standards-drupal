@@ -11,6 +11,6 @@
 function uswds_preprocess_html(&$variables) {
 
   // Set the paths to the favicons.
-  $main_favicon = $GLOBALS['base_url'] . '/' . uswds_theme_trail_file('uswds-library/img/favicons/favicon.png');
+  $main_favicon = $GLOBALS['base_url'] . '/' . uswds_theme_trail_file('assets/img/favicons/favicon.png');
   $variables['favicon_path'] = str_replace('favicon.png', '', $main_favicon);
 }
