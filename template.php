@@ -1,11 +1,13 @@
 <?php
 
 /**
+ * @file
+ * Theme code, mostly to make Drupal 7's markup work with USWDS.
  *
- * Implements hook_preprocess_html().
- *
+ * Note: If you are looking for theme overrides or preprocess functions, check
+ * the uswds/theme and uswds/preprocess folders.
  */
-function uswds_preprocess_html(&$variables) {
-  // set the path to the theme and make it available in html.tpl.php
-  $variables['theme_path'] = drupal_get_path('theme', 'uswds');
-}
+
+// Bring in our includes. Constants must be required first.
+require_once dirname(__FILE__) . '/includes/uswds.constants.inc';
+require_once dirname(__FILE__) . '/includes/uswds.stolen-from-omega.inc';
