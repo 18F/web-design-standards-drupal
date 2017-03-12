@@ -8,7 +8,7 @@ base theme  = uswds
 ; 1. Run "npm install" in this subtheme.
 ; 2. Uncomment the next line:
 ; stylesheets[all][] = assets/css/uswds.min.css
-; 3. Configure your Sass to output the compiled CSS to the folder above.
+; 3. Configure your Sass to output the compiled CSS to the folder/file above.
 
 ; The same regions as the base theme.
 regions[header_top] = Above Header
