@@ -264,6 +264,10 @@
             </div>
           <?php endif; ?>
 
+          <?php if ($page['footer_secondary']): ?>
+            <?php print render($page['footer_secondary']); ?>
+          <?php endif; ?>
+
         </div>
       </div>
     <?php endif; ?>
