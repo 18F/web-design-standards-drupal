@@ -4,16 +4,16 @@ screenshot  = screenshot.png
 core        = 7.x
 engine      = phptemplate
 
-; remove some of the system (core) CSS files
-; we can always add these back in as we need them
+; Remove some of the system (core) CSS files.
+; We can always add these back in as we need them by commenting out lines below.
 stylesheets[all][] = system.admin.css
 stylesheets[all][] = system.maintenance.css
 stylesheets[all][] = system.menus.css
 stylesheets[all][] = system.messages.css
 stylesheets[all][] = system.theme.css
 
-; remove some core module files
-; we can always add these back in as we need them
+; Remove some core module files.
+; We can always add these back in as we need them by commenting out lines below.
 stylesheets[all][] = aggregator.css
 stylesheets[all][] = block.css
 stylesheets[all][] = book.css
@@ -35,7 +35,7 @@ stylesheets[all][] = node.css
 stylesheets[all][] = openid.css
 stylesheets[all][] = poll.css
 stylesheets[all][] = profile.css
-stylesheets[all][] = search.css
+;stylesheets[all][] = search.css
 stylesheets[all][] = shortcut.admin.css
 stylesheets[all][] = simpletest.css
 stylesheets[all][] = taxonomy.css
@@ -71,3 +71,4 @@ settings[uswds_footer_style] = slim
 settings[uswds_footer_agency] = TRUE
 settings[uswds_footer_agency_name] = Agency Name
 settings[uswds_footer_agency_logo] = assets/img/logo-img.png
+settings[uswds_search] = TRUE
