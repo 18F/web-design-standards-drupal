@@ -9,6 +9,8 @@
  * Implements hook_preprocess_html().
  */
 function uswds_preprocess_html(&$variables) {
-  // set the path to the theme and make it available in html.tpl.php
-  $variables['theme_path'] = drupal_get_path('theme', 'uswds');
+
+  // Set the paths to the favicons.
+  $main_favicon = $GLOBALS['base_url'] . '/' . uswds_theme_trail_file('uswds-library/img/favicons/favicon.png');
+  $variables['favicon_path'] = str_replace('favicon.png', '', $main_favicon);
 }
