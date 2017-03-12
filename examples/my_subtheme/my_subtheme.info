@@ -29,3 +29,4 @@ settings[uswds_footer_style] = slim
 settings[uswds_footer_agency] = TRUE
 settings[uswds_footer_agency_name] = Agency Name
 settings[uswds_footer_agency_logo] = assets/img/logo-img.png
+settings[uswds_search] = TRUE
