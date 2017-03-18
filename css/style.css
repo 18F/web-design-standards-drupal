@@ -78,3 +78,14 @@ ul.tabs.primary li {
 .node-teaser > h2 {
   margin-top: 0.3em;
 }
+
+/* Draggable tables need some help. */
+.tabledrag-processed .tabledrag-handle {
+  margin-top: 15px;
+}
+.tabledrag-processed .tabledrag-leaf .form-text {
+  width: 85%;
+}
+.tabledrag-processed .handle {
+  box-sizing: content-box;
+}
