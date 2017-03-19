@@ -34,18 +34,17 @@ function uswds_fieldset($variables) {
   $aria_expanded = 'aria-expanded="' . $expanded . '"';
   $aria_hidden = 'aria-hidden="' . $hidden . '"';
   $id = drupal_html_id('uswds-drop');
-  $element['#attributes']['class'][] = 'usa-accordion-bordered';
-
-  // Outer div.
-  $output = '<div' . drupal_attributes($element['#attributes']) . '>';
 
   // Start an unordered list, even though we will only have one item.
-  $output .= '<ul class="usa-unstyled-list"><li>';
+  $output = USWDS_FIELDSET_START . '<li>';
+  // For accessibility, wrap the rest in a fieldset.
+  $output .= '<fieldset>';
 
   // Add the button for expanding the fieldset. If the fieldset doesn't have a
   // title, we need to force one here.
   $title = (empty($element['#title'])) ? '&nbsp;' : $element['#title'];
-  $output .= '<button type="button" class="usa-button-unstyled" aria-controls="' . $id . '" ' . $aria_expanded . '>' . $title . '</button>';
+  // For the visually unimpaired add a button for expanding/collapsing the set.
+  $output .= '<legend><button type="button" class="usa-accordion-button usa-button-unstyled" aria-controls="' . $id . '" ' . $aria_expanded . '>' . $title . '</button></legend>';
 
   // An inner div to contain the fieldset contents.
   $output .= '<div id="' . $id . '" class="fieldset-wrapper usa-accordion-content" ' . $aria_hidden . '>';
@@ -64,11 +63,11 @@ function uswds_fieldset($variables) {
   // Close the inner div.
   $output .= '</div>';
 
-  // Close the unordered list.
-  $output .= '</li></ul>';
+  // Close the fieldset.
+  $output .= '</fieldset>';
 
-  // Close the outer div.
-  $output .= "</div>\n";
+  // Close the unordered list.
+  $output .= '</li>' . USWDS_FIELDSET_END . "\n";
 
   return $output;
 }

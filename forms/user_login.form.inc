@@ -17,9 +17,6 @@ function uswds_form_user_login_alter(&$form) {
   unset($form['name']['#description']);
   unset($form['pass']['#description']);
 
-  // Keep the form's width under control.
-  $form['#attributes']['class'][] = 'usa-form';
-
   // Submit text consistent with page title.
   $form['actions']['submit']['#value'] = t('Sign in');
 

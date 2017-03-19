@@ -106,3 +106,13 @@ input[type=checkbox]:only-child {
 table select {
   width: auto;
 }
+
+/* Fieldset tweaks because we are putting fieldset buttons inside legends. */
+.usa-accordion > ul > li > fieldset > legend,
+.usa-accordion-bordered > ul > li > fieldset > legend {
+  width: 100%;
+}
+.usa-accordion > ul > li > fieldset > legend > button,
+.usa-accordion-bordered > ul > li > fieldset > legend > button {
+ line-height: inherit;
+}

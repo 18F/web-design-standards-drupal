@@ -9,7 +9,10 @@
  * Implements hook_form_alter().
  */
 function uswds_form_alter(&$form, $form_state) {
+  // Add custom validation for inline form errors.
   $form['#validate'][] = '_uswds_form_validation';
+  // Drupal is very form-centric, so default to the larger forms.
+  $form['#attributes']['class'][] = 'usa-form-large';
 }
 
 /**

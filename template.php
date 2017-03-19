@@ -68,19 +68,28 @@ function uswds_menu_alter(&$items) {
 /**
  * Helper function to get a simple fieldset/legend around form controls.
  *
- * @param $form
- *   The form array which will be altered by reference.
+ * @param $element
+ *   The element array which will be altered by reference.
  *
  * @param $legend_text
  *   The text to include in the fieldset legend.
  */
-function _uswds_simple_form_fieldset(&$form, $legend_text) {
-  $form['fieldset_start'] = array(
+function _uswds_simple_form_fieldset(&$element, $legend_text) {
+  $element['fieldset_start'] = array(
     '#weight' => -999,
     '#markup' => '<fieldset><legend>' . $legend_text . '</legend>',
   );
-  $form['fieldset_end'] = array(
+  $element['fieldset_end'] = array(
     '#weight' => 999,
     '#markup' => '</fieldset>',
   );
+}
+
+/**
+ * Helper function to convert a Drupal "container" into an accordion.
+ */
+function _uswds_container_to_fieldset(&$element, $button_text) {
+  $element['#type'] = 'fieldset';
+  $element['#collapsible'] = TRUE;
+  $element['#title'] = $button_text;
 }
