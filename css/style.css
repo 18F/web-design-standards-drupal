@@ -21,9 +21,11 @@ ul.tabs.secondary {
 }
 
 /* Fix the styling of form submit buttons. */
+.form-actions {
+  clear: both;
+}
 .form-actions input {
   float: left;
-  margin-top: 0;
 }
 
 /* The navigation z-index of 9000 causes issues (like with admin_menu). */
