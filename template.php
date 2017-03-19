@@ -54,9 +54,33 @@ function _uswds_get_region_for_menu($menu_name) {
   return $uswds_region;
 }
 
+/**
+ * Implements hook_menu_alter().
+ */
 function uswds_menu_alter(&$items) {
+  // Consistency of login-related menu titles.
   $items['user/login']['title'] = 'Sign in';
   $items['user/login']['weight'] = -10;
   $items['user/password']['title'] = 'Forgot password?';
   $items['user/register']['title'] = 'Create an account';
+}
+
+/**
+ * Helper function to get a simple fieldset/legend around form controls.
+ *
+ * @param $form
+ *   The form array which will be altered by reference.
+ *
+ * @param $legend_text
+ *   The text to include in the fieldset legend.
+ */
+function _uswds_simple_form_fieldset(&$form, $legend_text) {
+  $form['fieldset_start'] = array(
+    '#weight' => -999,
+    '#markup' => '<fieldset><legend>' . $legend_text . '</legend>',
+  );
+  $form['fieldset_end'] = array(
+    '#weight' => 999,
+    '#markup' => '</fieldset>',
+  );
 }
