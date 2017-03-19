@@ -17,5 +17,14 @@ function uswds_menu_local_tasks(&$variables) {
       }
     }
   }
+  if (!empty($variables['secondary'])) {
+    foreach($variables['secondary'] as $menu_item_key => $menu_attributes) {
+      $variables['secondary'][$menu_item_key]['#link']['localized_options']['attributes']['class'][] = 'usa-button';
+      $variables['secondary'][$menu_item_key]['#link']['localized_options']['attributes']['class'][] = 'usa-button-secondary';
+      if (!empty($variables['secondary'][$menu_item_key]['#active'])) {
+        $variables['secondary'][$menu_item_key]['#link']['localized_options']['attributes']['class'][] = 'usa-button-active';
+      }
+    }
+  }
   return theme_menu_local_tasks($variables);
 }

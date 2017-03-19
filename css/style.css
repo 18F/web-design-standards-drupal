@@ -8,13 +8,16 @@
  */
 
 /* Fix the styling of local tasks. */
-ul.tabs.primary {
+ul.tabs.primary, ul.tabs.secondary {
   list-style-type: none;
   padding-left: 0;
 }
-ul.tabs.primary li {
+ul.tabs.primary li, ul.tabs.secondary li {
   float: left;
   margin-right: 1em;
+}
+ul.tabs.secondary {
+  clear: both;
 }
 
 /* Fix the styling of form submit buttons. */
@@ -79,13 +82,25 @@ ul.tabs.primary li {
   margin-top: 0.3em;
 }
 
-/* Draggable tables need some help. */
-.tabledrag-processed .tabledrag-handle {
-  margin-top: 15px;
-}
-.tabledrag-processed .tabledrag-leaf .form-text {
-  width: 85%;
-}
-.tabledrag-processed .handle {
+/* Draggable tables need to be moved left. */
+.tabledrag-processed a.tabledrag-handle {
+  margin-left: -1.5em;
+  width: 1.5em;
   box-sizing: content-box;
+}
+
+/* Deal with checkboxes that don't have labels, which Drupal does sometimes. */
+input[type=checkbox]:only-child {
+  position: static;
+  opacity: 1;
+  appearance: checkbox;
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  height: 1.5em;
+  margin: 0;
+}
+
+/* Help with selects in tables */
+table select {
+  width: auto;
 }
