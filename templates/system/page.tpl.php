@@ -181,7 +181,11 @@
         <?php print $breadcrumb; ?>
         <a id="main-content"></a>
         <?php print $messages; ?>
-        <?php print render($tabs); ?>
+        <?php if (!empty($tabs)): ?>
+          <div class="clearfix">
+            <?php print render($tabs); ?>
+          </div>
+        <?php endif; ?>
         <?php print render($page['help']); ?>
 
         <?php if ($action_links): ?>
