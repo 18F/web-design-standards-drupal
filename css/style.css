@@ -118,3 +118,8 @@ table select {
 .usa-accordion-bordered > ul > li > fieldset > legend > button {
  line-height: inherit;
 }
+
+/* Some help for vertical tabs (which we render as accordions). */
+.uswds-vertical-tabs {
+  margin-top: 3rem;
+}

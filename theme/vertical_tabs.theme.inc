@@ -15,6 +15,6 @@ function uswds_vertical_tabs($variables) {
   // beginning and end of any themed fieldsets in the vertical tab contents.
   $contents = str_replace(USWDS_FIELDSET_START, '', $contents);
   $contents = str_replace(USWDS_FIELDSET_END, '', $contents);
-  $output = '<div class="usa-accordion-bordered"><ul>' . $contents . '</ul></div>';
+  $output = '<div class="uswds-vertical-tabs usa-accordion-bordered"><ul>' . $contents . '</ul></div>';
   return $output;
 }
