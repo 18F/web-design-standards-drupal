@@ -69,9 +69,13 @@ function uswds_preprocess_menu_tree(&$variables) {
 
     // Side navigation tweaks.
     case USWDS_MENU_REGION_SIDE:
-      $variables['uswds_menu_attributes']['class'][] = 'usa-sidenav-list';
-      $variables['uswds_menu_prefix'] = '<nav class="usa-footer-nav">';
-      $variables['uswds_menu_suffix'] = '</nav>';
+      $is_submenu = (strpos($variables['tree'], 'uswds-side-nav-top') === FALSE);
+      if ($is_submenu) {
+        $variables['uswds_menu_attributes']['class'][] = 'usa-sidenav-sub_list';
+      }
+      else {
+        $variables['uswds_menu_attributes']['class'][] = 'usa-sidenav-list';
+      }
       break;
 
     // Footer navigation tweaks.

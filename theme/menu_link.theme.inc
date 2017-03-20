@@ -21,7 +21,7 @@ function uswds_menu_link(&$variables) {
 
       // Primary navigation tweaks.
       case USWDS_MENU_REGION_PRIMARY:
-        // This very complex, so split out to a separate function.
+        // This is very complex, so split out to a separate function.
         return _uswds_theme_primary_menu_link($variables);
         break;
 
@@ -32,9 +32,9 @@ function uswds_menu_link(&$variables) {
 
       // Side navigation tweaks.
       case USWDS_MENU_REGION_SIDE:
-        if ($active) {
-          $element['#localized_options']['attributes']['class'][] = 'usa-current';
-        }
+        // This is very complex, so split out to a separate function.
+        return _uswds_theme_side_menu_link($variables);
+        kpr($variables);
         break;
 
       // Footer navigation tweaks.
@@ -107,4 +107,47 @@ function _uswds_theme_primary_menu_link(&$variables) {
   // If still here, treat as a normal link.
   $link = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $link . "</li>\n";
+}
+
+/**
+ * Helper function to render side menu links.
+ */
+function _uswds_theme_side_menu_link($variables) {
+  $element = $variables['element'];
+
+  // Some info we'll need in this complex function.
+  $depth = (int) $element['#original_link']['depth'];
+  $has_children = !empty($element['#below']);
+  $active_trail = (!empty($element['#original_link']['in_active_trail']));
+
+  // we only show up to 3 levels.
+  if ($depth > 3) {
+    return '';
+  }
+
+  // The active link gets a class.
+  if ($active_trail) {
+    $element['#localized_options']['attributes']['class'][] = 'usa-current';
+  }
+
+  // Mark top-level links, purely as a message to uswds_preprocess_menu_tree().
+  if (1 === $depth && $has_children) {
+    $element['#attributes']['class'][] = 'uswds-side-nav-top';
+  }
+
+  // Make the actual menu link.
+  $link = l($element['#title'], $element['#href'], $element['#localized_options']);
+
+  // Open the <li>.
+  $output = '<li' . drupal_attributes($element['#attributes']) . '>' . $link;
+
+  // We only care about hierarchy if this is in the active trail.
+  if ($active_trail && $has_children) {
+    $output .= drupal_render($element['#below']);
+  }
+
+  // Close the <li>.
+  $output .= "</li>\n";
+
+  return $output;
 }
