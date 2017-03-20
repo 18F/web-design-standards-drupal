@@ -91,8 +91,10 @@ ul.tabs.secondary {
   box-sizing: content-box;
 }
 
-/* Deal with checkboxes that don't have labels, which Drupal does sometimes. */
-input[type=checkbox]:only-child {
+/* Fallback to normal appearance for checkboxes that don't have labels, or have
+ * hidden labels. */
+input[type=checkbox]:only-child,
+label.element-invisible + input[type=checkbox] {
   position: static;
   opacity: 1;
   appearance: checkbox;
