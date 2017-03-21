@@ -101,6 +101,7 @@ label.element-invisible + input[type=checkbox] {
   -webkit-appearance: checkbox;
   -moz-appearance: checkbox;
   height: 1.5em;
+  width: 1.5em;
   margin: 0;
 }
 
@@ -132,4 +133,12 @@ fieldset.form-wrapper legend {
 /* We use the info alert style for the Help region. */
 .usa-alert-info {
   margin-bottom: 3rem;
+}
+
+/* Prevent issues caused by Views admin CSS. */
+.usa-search .container-inline > * + * {
+  padding-left: 0;
+}
+.usa-search .container-inline {
+  padding-top: 0;
 }
