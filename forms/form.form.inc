@@ -11,8 +11,10 @@
 function uswds_form_alter(&$form, $form_state) {
   // Add custom validation for inline form errors.
   $form['#validate'][] = '_uswds_form_validation';
-  // Drupal is very form-centric, so default to the larger forms.
-  $form['#attributes']['class'][] = 'usa-form-large';
+  // For public-facing pages, limit the width of forms.
+  if (!path_is_admin(current_path())) {
+    $form['#attributes']['class'][] = 'usa-form-large';
+  }
 }
 
 /**
