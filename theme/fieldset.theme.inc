@@ -14,12 +14,6 @@ function uswds_fieldset($variables) {
   // For now, only need to do stuff differently if this is collapsible.
   $override = (!empty($element['#collapsible']));
 
-  // Support for a random webform page.
-  if (!empty($element['#theme']) && 'webform_component_select' == $element['#theme']) {
-    $element['#collapsed'] = TRUE;
-    $override = TRUE;
-  }
-
   if (!$override) {
     return theme_fieldset($variables);
   }
