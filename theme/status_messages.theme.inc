@@ -13,12 +13,12 @@ function uswds_status_messages($variables) {
   $output = '';
 
   $status_heading = array(
-    'status' => t('Status message'),
-    'error' => t('Error message'),
-    'warning' => t('Warning message'),
+    'status' => t('Status'),
+    'error' => t('Error'),
+    'warning' => t('Warning'),
   );
   $status_mapping = array(
-    'status' => 'usa-alert-info',
+    'status' => 'usa-alert-success',
     'error' => 'usa-alert-error',
     'warning' => 'usa-alert-warning',
   );
@@ -29,7 +29,7 @@ function uswds_status_messages($variables) {
     }
     $output .= "<div class=\"$classes\"><div class=\"usa-alert-body\">\n";
     if (!empty($status_heading[$type])) {
-      $output .= '<h2 class="usa-alert-heading element-invisible">' . $status_heading[$type] . "</h2>\n";
+      $output .= '<h3 class="usa-alert-heading">' . $status_heading[$type] . "</h3>\n";
     }
     if (count($messages) > 1) {
       $output .= " <ul class=\"usa-alert-text\">\n";

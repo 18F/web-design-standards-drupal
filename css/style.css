@@ -119,7 +119,17 @@ table select {
  line-height: inherit;
 }
 
+/* Normal Drupal fieldsets just need help. */
+fieldset.form-wrapper legend {
+  padding-top: 30px;
+}
+
 /* Some help for vertical tabs (which we render as accordions). */
 .uswds-vertical-tabs {
   margin-top: 3rem;
+}
+
+/* We use the info alert style for the Help region. */
+.usa-alert-info {
+  margin-bottom: 3rem;
 }

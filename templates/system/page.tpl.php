@@ -186,7 +186,16 @@
             <?php print render($tabs); ?>
           </div>
         <?php endif; ?>
-        <?php print render($page['help']); ?>
+        <?php if (!empty($page['help'])): ?>
+          <div class="usa-alert usa-alert-info">
+            <div class="usa-alert-body">
+              <h3 class="usa-alert-heading"><?php print t('Information') ?></h3>
+              <div class="usa-alert-text">
+                <?php print render($page['help']); ?>
+              </div>
+            </div>
+          </div>
+        <?php endif; ?>
 
         <?php if ($action_links): ?>
           <ul class="action-links"><?php print render($action_links); ?></ul>
