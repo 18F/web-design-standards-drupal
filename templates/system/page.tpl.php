@@ -12,24 +12,39 @@
  * USWDS-specific variables:
  * - $base_theme_path: The URL path to the actual "uswds" theme, even if this
  *   template is in a subtheme.
- * - $footer_agency: Whether to display info about an agency in the footer. Also
- *   available are these related variables:
+ * - $display_footer_agency: Whether to display info about an agency in the
+ *   footer. Also available are these related variables:
  *   - $footer_agency_name
  *   - $footer_agency_url
  *   - $footer_agency_logo
+ *   - $contact_center
+ *   - $phone
+ *   - $email
+ *   - $facebook
+ *   - $twitter
+ *   - $youtube
+ *   - $rss
  * - $content_class: A grid-related CSS class that should be placed on the
  *   main content area (separate from the sidebars).
- * - $header_style: What type of header is active ("extended" or "basic").
- * - $header_basic: TRUE if $header_style is "basic".
- * - $header_extended: TRUE if $header_style is "extended".
+ * - $header_style: What type of header is active. Also related to this:
+ *   - $header_basic: TRUE if $header_style is "usa-header-basic".
+ *   - $header_extended: TRUE if $header_style is "usa-header-extended".
  * - $header_classes: CSS classes that need to be placed on the header area.
- * - $footer_style: What type of footer is active ("slim", "big", "medium").
+ * - $footer_style: What type of footer is active. Also related to this:
+ *   - $footer_big: TRUE if $footer_style is "usa-footer-big".
+ *   - $footer_medium: TRUE if $footer_style is "usa-footer-medium".
+ *   - $footer_slim: TRUE if $footer_style is "usa-footer-slim".
  * - $footer_classes: CSS classes that need to be placed on the footer area.
  * - $footer_menu: A render array for the footer menu.
+ * - $footer_menu_width: Class that needs to go on the footer menu.
  * - $main_menu: A render array for the primary navigation (which is different
  *   than the usual $main_menu array of links).
  * - $secondary_menu: A render array for the secondary navigation (which is
  *   different than the usual $secondary_menu array of links).
+ * - $footer_agency_heading_class: Class for the agency name in the footer.
+ * - $footer_agency_logo_class: Class for the agency logo in the footer.
+ * - $display_footer_primary: Whether to display the primary footer section.
+ * - $display_footer_secondary: Whether to display the secondary footer section.
  *
  * General utility variables:
  * - $base_path: The base URL path of the Drupal installation. At the very
