@@ -252,10 +252,7 @@
 
     <?php if ($display_footer_primary): ?>
     <div class="usa-footer-primary-section">
-
       <div class="usa-grid">
-
-        <?php if ($footer_menu || ($footer_slim && $display_footer_contact)): ?>
         <nav class="usa-footer-nav <?php print $footer_menu_width ?>">
 
           <?php if ($footer_menu): ?>
@@ -281,7 +278,6 @@
 
         </div>
         <?php endif; ?>
-
       </div>
 
       <?php if ($page['footer']): ?>
@@ -291,7 +287,6 @@
       <?php endif; ?>
 
     </div>
-    <?php endif; ?>
 
   <?php endif; ?>
 
