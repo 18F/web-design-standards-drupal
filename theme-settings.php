@@ -12,9 +12,6 @@ include_once(__DIR__ . '/includes/uswds.constants.inc');
 function uswds_form_system_theme_settings_alter(&$form, $form_state) {
   $menu_options[USWDS_MENU_NONE] = t('-- None --');
   $menu_options += menu_get_menus();
-  $menu_options[USWDS_MENU_PATTERN_OPTION] = t('-- Use a wildcard pattern --');
-
-  $pattern_description = t('Any menu whose machine name matches this pattern will be treated as this type of menu. For example, entering "menu-og" here will match "menu-og-123".');
 
   // Menu settings.
   $form['uswds_menu_fieldset'] = array(
@@ -29,26 +26,6 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
     )),
   );
 
-  // The side menu.
-  $form['uswds_menu_fieldset'][USWDS_MENU_REGION_SIDE] = array(
-    '#type' => 'select',
-    '#options' => $menu_options,
-    '#title' => t('Side menu'),
-    '#default_value' => theme_get_setting(USWDS_MENU_REGION_SIDE),
-    '#description' => t('Choose a menu to treat as the side menu.'),
-  );
-  $form['uswds_menu_fieldset'][USWDS_MENU_REGION_SIDE . '_pattern'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Side menu wildcard pattern'),
-    '#default_value' => theme_get_setting(USWDS_MENU_REGION_SIDE . '_pattern'),
-    '#description' => $pattern_description,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="' . USWDS_MENU_REGION_SIDE . '"]' => array('value' => USWDS_MENU_PATTERN_OPTION),
-      ),
-    ),
-  );
-
   // The footer menu.
   $form['uswds_menu_fieldset'][USWDS_MENU_REGION_FOOTER] = array(
     '#type' => 'select',
@@ -57,22 +34,11 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting(USWDS_MENU_REGION_FOOTER),
     '#description' => t('Choose a menu to treat as the footer menu.'),
   );
-  $form['uswds_menu_fieldset'][USWDS_MENU_REGION_FOOTER . '_pattern'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Footer menu wildcard pattern'),
-    '#default_value' => theme_get_setting(USWDS_MENU_REGION_FOOTER . '_pattern'),
-    '#description' => $pattern_description,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="' . USWDS_MENU_REGION_FOOTER . '"]' => array('value' => USWDS_MENU_PATTERN_OPTION),
-      ),
-    ),
-  );
 
   // Whether to display the search bar in the secondary menu.
   $form['uswds_menu_fieldset']['uswds_search'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Display a search form in the navigation area?'),
+    '#title' => t('Display a search form in the primary navigation area?'),
     '#default_value' => theme_get_setting('uswds_search'),
   );
   if (!module_exists('search')) {
@@ -115,6 +81,17 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
         USWDS_FOOTER_STYLE_SLIM => t('Slim'),
       ),
       '#default_value' => theme_get_setting('uswds_footer_style'),
+    ),
+    'uswds_big_footer_help' => array(
+      '#type' => 'container',
+      'markup' => array(
+        '#markup' => t('Site building note: In the "Big" footer style, the footer menu must be a two-level menu, because the first level of menu items is only rendered as column headers.'),
+      ),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="uswds_footer_style"]' => array('value' => USWDS_FOOTER_STYLE_BIG),
+        ),
+      ),
     ),
     'uswds_footer_agency' => array(
       '#type' => 'checkbox',
