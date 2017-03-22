@@ -9,8 +9,16 @@
  * Implements hook_form_FORM_ID_alter().
  */
 function uswds_form_search_block_form_alter(&$form) {
+
   $form['#attributes']['class'][] = 'usa-search';
   $form['#attributes']['class'][] = 'usa-search-small';
+
+  // No need to control the size.
+  unset($form['search_block_form']['#size']);
+
+  // Add the role of search.
+  $form['search_block_form']['#prefix'] = '<div role="search">';
+  $form['actions']['#suffix'] = '</div>';
 
   // Add javascript classes if this is the extended header.
   if (USWDS_HEADER_STYLE_EXTENDED == theme_get_setting('uswds_header_style')) {
