@@ -28,7 +28,6 @@ function _uswds_get_region_for_menu($menu_name) {
     $uswds_regions = array(
       USWDS_MENU_REGION_PRIMARY => variable_get('menu_main_links_source', USWDS_MENU_NONE),
       USWDS_MENU_REGION_SECONDARY => variable_get('menu_secondary_links_source', USWDS_MENU_NONE),
-      USWDS_MENU_REGION_SIDE => theme_get_setting(USWDS_MENU_REGION_SIDE),
       USWDS_MENU_REGION_FOOTER => theme_get_setting(USWDS_MENU_REGION_FOOTER),
     );
     foreach ($uswds_regions as $region => $configured_menu) {
@@ -39,15 +38,6 @@ function _uswds_get_region_for_menu($menu_name) {
       elseif ($menu_name == $configured_menu) {
         $uswds_region = $region;
         break;
-      }
-      // If the region is configured to use a pattern, check that for a match.
-      elseif (USWDS_MENU_PATTERN_OPTION == $configured_menu) {
-        $pattern = theme_get_setting($region . '_pattern');
-        if (!empty($pattern) && strpos($menu_name, $pattern) !== FALSE) {
-          // If we found a match, we can stop looping.
-          $uswds_region = $region;
-          break;
-        }
       }
     }
   }
@@ -92,4 +82,46 @@ function _uswds_container_to_fieldset(&$element, $button_text) {
   $element['#type'] = 'fieldset';
   $element['#collapsible'] = TRUE;
   $element['#title'] = $button_text;
+}
+
+/**
+ * Implements hook_block_view_alter().
+ *
+ * This is used to tell what region a block is placed in, and is what allows us
+ * to automatically tweak the markup of side navigation.
+ */
+function uswds_block_view_alter(&$build, $block) {
+
+  if ('sidebar_first' != $block->region) {
+    return;
+  }
+
+  if (empty($build['content']) || !is_array($build['content'])) {
+    return;
+  }
+
+  if (empty($build['content']['#theme_wrappers'][0])) {
+    return;
+  }
+
+  if (strpos($build['content']['#theme_wrappers'][0], 'menu_tree__') === FALSE) {
+    return;
+  }
+
+  // If we're still here, we must be looking at a core menu block in a sidebar.
+  _uswds_mark_side_navigation_items($build['content']);
+}
+
+/**
+ * Helper function to recursively mark menu links as being in a sidebar.
+ */
+function _uswds_mark_side_navigation_items(&$element) {
+  foreach (element_children($element) as $key) {
+    // Drop a note in all the menu links for later use in uswds_menu_link().
+    $element[$key]['#uswds_sidebar'] = TRUE;
+    // Recurse if there are children.
+    if (!empty($element[$key]['#below'])) {
+      _uswds_mark_side_navigation_items($element[$key]['#below']);
+    }
+  }
 }

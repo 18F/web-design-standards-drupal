@@ -18,7 +18,16 @@ function uswds_preprocess_menu_tree(&$variables) {
   // Now look to see if this menu needs special USWDS tweaking.
   $uswds_region = _uswds_get_region_for_menu($menu_name);
   if (!$uswds_region) {
-    return;
+    // For most of our menus, we know in advance the particular menu name to look
+    // for. But for sidebars, all we know if that it is in a sidebar region. So,
+    // for these, we simply use a string check.
+    if (strpos($variables['tree'], 'uswds-side-nav-link') !== FALSE) {
+      // Yes, this is a sidebar menu.
+      $uswds_region = USWDS_MENU_REGION_SIDE;
+    }
+    else {
+      return;
+    }
   }
   switch ($uswds_region) {
 

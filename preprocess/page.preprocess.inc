@@ -88,7 +88,7 @@ function uswds_preprocess_page(&$variables) {
 
   // Decide on the menus.
   $footer_menu = theme_get_setting(USWDS_MENU_REGION_FOOTER);
-  if ($footer_menu && USWDS_MENU_NONE != $footer_menu && USWDS_MENU_PATTERN_OPTION != $footer_menu) {
+  if ($footer_menu && USWDS_MENU_NONE != $footer_menu) {
     $variables['footer_menu'] = menu_tree($footer_menu);
   }
   else {
