@@ -99,78 +99,72 @@
   <header class="<?php print $header_classes ?>" id="header" role="banner">
 
     <?php if ($page['header_top']): ?>
-      <section class="usa-banner">
-
-        <div class="usa-banner-inner">
-          <?php print render($page['header_top']); ?>
-        </div>
-
-      </section>
+    <section class="usa-banner">
+      <div class="usa-banner-inner">
+        <?php print render($page['header_top']); ?>
+      </div>
+    </section>
     <?php endif; ?>
 
     <?php if ($header_basic): ?>
-      <div class="usa-nav-container">
+    <div class="usa-nav-container">
     <?php endif; ?>
 
     <div class="usa-navbar">
 
       <?php if ($main_menu || $secondary_menu): ?>
-        <button class="usa-menu-btn">Menu</button>
+      <button class="usa-menu-btn">Menu</button>
       <?php endif; ?>
 
       <div class="usa-logo" id="logo">
 
         <?php if ($logo): ?>
-          <a class="logo-img" href="<?php print $front_page ?>" accesskey="1" title="<?php print t('Home'); ?>" aria-label="Home">
-            <img src="<?php print $logo ?>" alt="<?php print t('Home'); ?>" />
-          </a>
+        <a class="logo-img" href="<?php print $front_page ?>" accesskey="1" title="<?php print t('Home'); ?>" aria-label="Home">
+          <img src="<?php print $logo ?>" alt="<?php print t('Home'); ?>" />
+        </a>
         <?php endif; ?>
 
         <?php if ($site_name): ?>
-          <em class="usa-logo-text">
-            <a href="<?php print $front_page ?>" accesskey="1" title="<?php print t('Home'); ?>" aria-label="Home">
-              <?php print $site_name; ?>
-            </a>
-          </em>
+        <em class="usa-logo-text">
+          <a href="<?php print $front_page ?>" accesskey="1" title="<?php print t('Home'); ?>" aria-label="Home">
+            <?php print $site_name; ?>
+          </a>
+        </em>
         <?php endif; ?>
 
-          <?php if ($site_slogan): ?>
-            <h2 class="usa-font-lead"><?php print $site_slogan; ?></h2>
-          <?php endif; ?>
-
-        </a>
+        <?php if ($site_slogan): ?>
+          <h2 class="usa-font-lead"><?php print $site_slogan; ?></h2>
+        <?php endif; ?>
 
       </div>
-
     </div>
 
     <?php if ($page['header'] || $main_menu || $secondary_menu): ?>
+    <nav class="usa-nav" role="navigation">
+      <div class="usa-nav-inner">
 
-      <nav class="usa-nav" role="navigation">
-        <div class="usa-nav-inner">
+        <?php if ($main_menu || $secondary_menu): ?>
+        <button class="usa-nav-close">
+          <img src="<?php print $base_theme_path; ?>/assets/img/close.svg" alt="close" />
+        </button>
+        <?php endif; ?>
 
-          <?php if ($main_menu || $secondary_menu): ?>
-            <button class="usa-nav-close">
-              <img src="<?php print $base_theme_path; ?>/assets/img/close.svg" alt="close" />
-            </button>
-          <?php endif; ?>
+        <?php if ($main_menu): ?>
+        <?php print render($main_menu) ?>
+        <?php endif; ?>
 
-          <?php if ($main_menu): ?>
-            <?php print render($main_menu) ?>
-          <?php endif; ?>
-          <?php if ($secondary_menu): ?>
-            <?php print render($secondary_menu) ?>
-          <?php endif; ?>
+        <?php if ($secondary_menu): ?>
+        <?php print render($secondary_menu) ?>
+        <?php endif; ?>
 
-          <?php print render($page['header']); ?>
+        <?php print render($page['header']); ?>
 
-        </div>
-      </nav>
-
+      </div>
+    </nav>
     <?php endif; ?>
 
     <?php if ($header_basic): ?>
-      </div>
+    </div>
     <?php endif; ?>
 
   </header>
@@ -181,24 +175,28 @@
         <?php print $breadcrumb; ?>
         <a id="main-content"></a>
         <?php print $messages; ?>
+
         <?php if (!empty($tabs)): ?>
-          <div class="clearfix">
-            <?php print render($tabs); ?>
-          </div>
+        <div class="clearfix">
+          <?php print render($tabs); ?>
+        </div>
         <?php endif; ?>
+
         <?php if (!empty($page['help'])): ?>
-          <div class="usa-alert usa-alert-info">
-            <div class="usa-alert-body">
-              <h3 class="usa-alert-heading"><?php print t('Information') ?></h3>
-              <div class="usa-alert-text">
-                <?php print render($page['help']); ?>
-              </div>
+        <div class="usa-alert usa-alert-info">
+          <div class="usa-alert-body">
+            <h3 class="usa-alert-heading"><?php print t('Information') ?></h3>
+            <div class="usa-alert-text">
+              <?php print render($page['help']); ?>
             </div>
           </div>
+        </div>
         <?php endif; ?>
 
         <?php if ($action_links): ?>
-          <ul class="action-links"><?php print render($action_links); ?></ul>
+        <ul class="action-links">
+          <?php print render($action_links); ?>
+        </ul>
         <?php endif; ?>
 
       </div>
@@ -206,16 +204,16 @@
     <div class="usa-grid uswds-content-section">
 
       <?php if ($page['sidebar_first']): ?>
-        <aside class="usa-width-one-fourth">
-          <?php print render($page['sidebar_first']); ?>
-        </aside>
+      <aside class="usa-width-one-fourth">
+        <?php print render($page['sidebar_first']); ?>
+      </aside>
       <?php endif; ?>
 
       <div class="<?php print $content_class ?>">
         <?php print render($title_prefix); ?>
 
         <?php if ($title): ?>
-          <h1 class="page-title"><?php print $title; ?></h1>
+        <h1 class="page-title"><?php print $title; ?></h1>
         <?php endif; ?>
 
         <?php print render($title_suffix); ?>
@@ -224,9 +222,9 @@
       </div>
 
       <?php if ($page['sidebar_second']): ?>
-        <aside class="usa-width-one-fourth">
-          <?php print render($page['sidebar_second']); ?>
-        </aside>
+       <aside class="usa-width-one-fourth">
+        <?php print render($page['sidebar_second']); ?>
+      </aside>
       <?php endif; ?>
 
     </div>
@@ -237,53 +235,132 @@
       <a href="#">Return to top</a>
     </div>
 
-    <?php if ($page['footer'] || $footer_menu): ?>
-      <div class="usa-footer-primary-section">
-        <div class="usa-grid-full">
+    <?php if ($display_footer_primary): ?>
+    <div class="usa-footer-primary-section">
+
+      <div class="usa-grid">
+
+        <?php if ($footer_menu || ($footer_slim && $display_footer_contact)): ?>
+        <nav class="usa-footer-nav <?php print $footer_menu_width ?>">
 
           <?php if ($footer_menu): ?>
-            <?php print render($footer_menu) ?>
+          <?php print render($footer_menu) ?>
           <?php endif; ?>
 
-          <?php print render($page['footer']); ?>
+        </nav>
 
-        </div>
-      </div>
-    <?php endif; ?>
+        <?php if ($footer_slim && ($phone || $email)): ?>
+        <div class="usa-width-one-third">
 
-    <?php if ($page['footer_secondary'] || $footer_agency): ?>
-      <div class="usa-footer-secondary_section">
-        <div class="usa-grid">
-
-          <?php if ($footer_agency): ?>
-            <div class="usa-footer-logo">
-
-              <?php if ($footer_agency_url): ?>
-                <a href="<?php print $agency_url ?>">
-              <?php endif; ?>
-
-              <?php if ($footer_agency_logo): ?>
-                <img class="<?php print $footer_style ?>-logo-img" src="<?php print $footer_agency_logo ?>" alt="Agency logo">
-              <?php endif; ?>
-
-              <?php if ($footer_agency_name): ?>
-                <h3 class="<?php print $footer_style ?>-logo-heading"><?php print $footer_agency_name ?></h3>
-              <?php endif; ?>
-
-              <?php if ($footer_agency_url): ?>
-                </a>
-              <?php endif; ?>
-
-            </div>
+          <?php if ($phone): ?>
+          <div class="usa-footer-primary-content usa-footer-contact_info">
+            <p><?php print $phone ?></p>
+          </div>
           <?php endif; ?>
 
-          <?php if ($page['footer_secondary']): ?>
-            <?php print render($page['footer_secondary']); ?>
+          <?php if ($email): ?>
+          <div class="usa-footer-primary-content usa-footer-contact_info">
+            <p><?php print $email ?></p>
+          </div>
           <?php endif; ?>
 
         </div>
+        <?php endif; ?>
+
       </div>
+
+      <?php if ($page['footer']): ?>
+      <div class="usa-grid">
+        <?php print render($page['footer']); ?>
+      </div>
+      <?php endif; ?>
+
+    </div>
     <?php endif; ?>
+
+  <?php endif; ?>
+
+  <?php if ($display_footer_secondary): ?>
+  <div class="usa-footer-secondary_section">
+
+    <?php if ($display_footer_agency): ?>
+    <div class="usa-grid">
+      <div class="usa-footer-logo <?php if (!$footer_slim) print 'usa-width-one-half'; ?>">
+
+        <?php if ($footer_agency_url): ?>
+        <a href="<?php print $footer_agency_url ?>">
+        <?php endif; ?>
+
+        <?php if ($footer_agency_logo): ?>
+        <img class="<?php print $footer_agency_logo_class ?>" src="<?php print $footer_agency_logo ?>" alt="<?php print t('Agency logo') ?>">
+        <?php endif; ?>
+
+        <?php if ($footer_agency_name): ?>
+        <h3 class="<?php print $footer_agency_heading_class ?>"><?php print $footer_agency_name ?></h3>
+        <?php endif; ?>
+
+        <?php if ($footer_agency_url): ?>
+        </a>
+        <?php endif; ?>
+
+      </div>
+
+      <?php if (!$footer_slim): ?>
+      <div class="usa-footer-contact-links usa-width-one-half">
+
+        <?php if ($facebook): ?>
+        <a class="usa-link-facebook" href="<?php print $facebook ?>">
+          <span>Facebook</span>
+        </a>
+        <?php endif; ?>
+
+        <?php if ($twitter): ?>
+        <a class="usa-link-twitter" href="<?php print $twitter ?>">
+          <span>Twitter</span>
+        </a>
+        <?php endif; ?>
+
+        <?php if ($youtube): ?>
+        <a class="usa-link-youtube" href="<?php print $youtube ?>">
+          <span>YouTube</span>
+        </a>
+        <?php endif; ?>
+
+        <?php if ($rss): ?>
+        <a class="usa-link-rss" href="<?php print $rss ?>">
+          <span>RSS</span>
+        </a>
+        <?php endif; ?>
+
+        <address>
+
+          <?php if ($contact_center): ?>
+          <h3 class="usa-footer-contact-heading"><?php print $contact_center ?></h3>
+          <?php endif; ?>
+
+          <?php if ($phone): ?>
+          <p><?php print $phone ?></p>
+          <?php endif; ?>
+
+          <?php if ($email): ?>
+          <?php print $email ?>
+          <?php endif; ?>
+
+        </address>
+      </div>
+      <?php endif; ?>
+
+    </div>
+    <?php endif; ?>
+
+    <?php if ($page['footer_secondary']): ?>
+    <div class="usa-grid">
+    <?php print render($page['footer_secondary']); ?>
+    <?php endif; ?>
+
+    </div>
+  </div>
+  <?php endif; ?>
 
   </footer>
 </div>
