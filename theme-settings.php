@@ -116,39 +116,109 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
       ),
       '#default_value' => theme_get_setting('uswds_footer_style'),
     ),
-    'uswds_footer_secondary' => array(
+    'uswds_footer_agency' => array(
       '#type' => 'checkbox',
-      '#title' => t('Add agency information in the footer\'s secondary section?'),
-      '#default_value' => theme_get_setting('uswds_footer_secondary'),
+      '#title' => t('Add agency information in the footer?'),
+      '#default_value' => theme_get_setting('uswds_footer_agency'),
     ),
-    'uswds_footer_secondary_agency_name' => array(
+    'uswds_footer_agency_name' => array(
       '#type' => 'textfield',
       '#title' => t('Footer agency name'),
-      '#default_value' => theme_get_setting('uswds_footer_secondary_agency_name'),
+      '#default_value' => theme_get_setting('uswds_footer_agency_name'),
       '#states' => array(
         'visible' => array(
-          ':input[name="uswds_footer_secondary"]' => array('checked' => TRUE),
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
         ),
       ),
     ),
-    'uswds_footer_secondary_agency_url' => array(
+    'uswds_footer_agency_url' => array(
       '#type' => 'textfield',
       '#title' => t('Footer agency URL'),
-      '#default_value' => theme_get_setting('uswds_footer_secondary_agency_url'),
+      '#default_value' => theme_get_setting('uswds_footer_agency_url'),
       '#states' => array(
         'visible' => array(
-          ':input[name="uswds_footer_secondary"]' => array('checked' => TRUE),
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
         ),
       ),
     ),
-    'uswds_footer_secondary_agency_logo' => array(
+    'uswds_footer_agency_logo' => array(
       '#type' => 'textfield',
       '#title' => t("Path to footer agency logo (from this theme's folder)"),
       '#description' => t('For example: images/footer-agency.png'),
-      '#default_value' => theme_get_setting('uswds_footer_secondary_agency_logo'),
+      '#default_value' => theme_get_setting('uswds_footer_agency_logo'),
       '#states' => array(
         'visible' => array(
-          ':input[name="uswds_footer_secondary"]' => array('checked' => TRUE),
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+    'uswds_contact_center' => array(
+      '#type' => 'textfield',
+      '#title' => t('Name of contact center'),
+      '#default_value' => theme_get_setting('uswds_contact_center'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+    'uswds_email' => array(
+      '#type' => 'textfield',
+      '#title' => t('Email'),
+      '#default_value' => theme_get_setting('uswds_email'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+    'uswds_phone' => array(
+      '#type' => 'textfield',
+      '#title' => t('Phone'),
+      '#default_value' => theme_get_setting('uswds_phone'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+    'uswds_facebook' => array(
+      '#type' => 'textfield',
+      '#title' => t('Facebook link'),
+      '#default_value' => theme_get_setting('uswds_facebook'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+    'uswds_twitter' => array(
+      '#type' => 'textfield',
+      '#title' => t('Twitter link'),
+      '#default_value' => theme_get_setting('uswds_twitter'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+    'uswds_youtube' => array(
+      '#type' => 'textfield',
+      '#title' => t('Youtube link'),
+      '#default_value' => theme_get_setting('uswds_youtube'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+    'uswds_rss' => array(
+      '#type' => 'textfield',
+      '#title' => t('RSS feed'),
+      '#default_value' => theme_get_setting('uswds_rss'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="uswds_footer_agency"]' => array('checked' => TRUE),
         ),
       ),
     ),
