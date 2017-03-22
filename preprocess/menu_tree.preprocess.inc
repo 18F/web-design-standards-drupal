@@ -80,7 +80,7 @@ function uswds_preprocess_menu_tree(&$variables) {
 
     // Footer navigation tweaks.
     case USWDS_MENU_REGION_FOOTER:
-      // Nothing needed so far.
+      $variables['uswds_menu_attributes']['class'][] = 'usa-unstyled-list';
       break;
   }
 }
