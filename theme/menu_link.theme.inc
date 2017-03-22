@@ -12,16 +12,22 @@ function uswds_menu_link(&$variables) {
   $element = $variables['element'];
   $menu_name = $element['#original_link']['menu_name'];
 
-  $uswds_region = _uswds_get_region_for_menu($menu_name);
+  // For sidebar menus, we look for a certain flag.
+  if (!empty($variables['element']['#uswds_sidebar'])) {
+    $uswds_region = USWDS_MENU_REGION_SIDE;
+  }
+  // For all other menus we look for a specific menu. The reason for this
+  // difference is that sidebar menus must be placed as blocks, whereas other
+  // menus can be placed using the theme settings form.
+  else {
+    $uswds_region = _uswds_get_region_for_menu($menu_name);
+  }
   if ($uswds_region) {
-
-    $active = (current_path() == $variables['element']['#href']);
 
     switch ($uswds_region) {
 
       // Primary navigation tweaks.
       case USWDS_MENU_REGION_PRIMARY:
-        // This is very complex, so split out to a separate function.
         return _uswds_theme_primary_menu_link($variables);
         break;
 
@@ -32,20 +38,17 @@ function uswds_menu_link(&$variables) {
 
       // Side navigation tweaks.
       case USWDS_MENU_REGION_SIDE:
-        // This is very complex, so split out to a separate function.
         return _uswds_theme_side_menu_link($variables);
-        kpr($variables);
         break;
 
       // Footer navigation tweaks.
       case USWDS_MENU_REGION_FOOTER:
-        $element['#attributes']['class'][] = 'usa-width-one-sixth';
-        $element['#attributes']['class'][] = 'usa-footer-primary-content';
-        $element['#localized_options']['attributes']['class'][] = 'usa-footer-primary-link';
+        return _uswds_theme_footer_menu_link($variables);
         break;
     }
   }
 
+  // If still here, fallback to regular Drupal menu links.
   $link = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $link . "</li>\n";
 }
@@ -134,6 +137,8 @@ function _uswds_theme_side_menu_link($variables) {
   if (1 === $depth && $has_children) {
     $element['#attributes']['class'][] = 'uswds-side-nav-top';
   }
+  // Similarly give all links a mark.
+  $element['#attributes']['class'][] = 'uswds-side-nav-link';
 
   // Make the actual menu link.
   $link = l($element['#title'], $element['#href'], $element['#localized_options']);
@@ -149,5 +154,45 @@ function _uswds_theme_side_menu_link($variables) {
   // Close the <li>.
   $output .= "</li>\n";
 
+  return $output;
+}
+
+function _uswds_theme_footer_menu_link($variables) {
+
+  $element = $variables['element'];
+
+  // The footer menu items are very different depending on the footer style.
+  $big = (USWDS_FOOTER_STYLE_BIG == theme_get_setting('uswds_footer_style'));
+
+  if (!$big) {
+    $element['#attributes']['class'][] = 'usa-width-one-sixth';
+    $element['#attributes']['class'][] = 'usa-footer-primary-content';
+    $element['#localized_options']['attributes']['class'][] = 'usa-footer-primary-link';
+
+    $link = l($element['#title'], $element['#href'], $element['#localized_options']);
+    return '<li' . drupal_attributes($element['#attributes']) . '>' . $link . "</li>\n";
+  }
+
+  // Otherwise, we will need to render this as a hierarchical menu, assuming the
+  // top level is columns titles, and the 2nd level is the actual menu items.
+  $depth = (int) $element['#original_link']['depth'];
+
+  // We only care about the first level of a menu.
+  if ($depth > 1) {
+    return '';
+  }
+
+  $output = '';
+  // Only render the top-level items that actually have children.
+  if (!empty($element['#below'])) {
+    $output .= '<ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">' . "\n";
+    $output .= '<li class="usa-footer-primary-link"><h4>' . $element['#title'] . "</h4></li>\n";
+    foreach (element_children($element['#below']) as $key) {
+      $child = $element['#below'][$key];
+      $link = l($child['#title'], $child['#href'], $child['#localized_options']);
+      $output .= '<li>' . $link . "</li>\n";
+    }
+    $output .= "</ul>\n";
+  }
   return $output;
 }
