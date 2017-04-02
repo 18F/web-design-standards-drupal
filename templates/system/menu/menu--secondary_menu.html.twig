@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Override of system/menu.html.twig for the secondary menu.
+ */
+#}
+<div class="usa-nav-secondary">
+
+  {{ search_form }}
+  {% if items %}
+  <ul class="usa-unstyled-list usa-nav-secondary-links">
+
+  {{ search_item|raw }}
+  {% for item in items %}
+    <li>{{ link(item.title, item.url) }}</li>
+  {% endfor %}
+
+  </ul>
+  {% endif %}
+
+</div>

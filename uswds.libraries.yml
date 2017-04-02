@@ -1,0 +1,15 @@
+uswds:
+  version: 1.0.0
+  css:
+    theme:
+      assets/css/uswds.min.css: {}
+  js:
+    assets/js/uswds.min.js: {}
+drupal:
+  version: 1.0.0
+  css:
+    theme:
+      # Our assorted style fixes.
+      css/style.css: {}
+      # Drupal's unfortunate "dropbuttons" are a beast, so just use Seven.
+      /core/themes/seven/css/components/dropbutton.component.css: {}

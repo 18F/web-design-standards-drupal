@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Override of system/menu.html.twig for the footer menu.
+ */
+#}
+
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, 0, footer_style) }}
+
+{% macro menu_links(items, menu_level, footer_style) %}
+  {% import _self as menus %}
+  {% if items %}
+
+    {% if not 'big' == footer_style %}
+    <ul class="usa-unstyled-list">
+    {% endif %}
+
+    {% for item in items %}
+
+      {% if menu_level == 0 and 'big' == footer_style %}
+      <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
+        <li class="usa-footer-primary-link">
+          <h4>{{ item.title }}</h4>
+        </li>
+
+        {% if item.below %}
+        {{ menus.menu_links(item.below, 1, footer_style) }}
+        {% endif %}
+      </ul>
+      {% elseif 'big' == footer_style %}
+      <li>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+      {% elseif 'medium' == footer_style %}
+      <li class="usa-width-one-sixth usa-footer-primary-content">
+        <a class="usa-footer-primary-link" href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+      {% else %}
+      <li class="usa-width-one-fourth usa-footer-primary-content">
+        <a class="usa-footer-primary-link" href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+      {% endif %}
+
+    {% endfor %}
+
+    {% if not 'big' == footer_style %}
+    </ul>
+    {% endif %}
+
+  {% endif %}
+{% endmacro %}
