@@ -67,7 +67,7 @@ function uswds_theme_registry_alter(&$registry) {
 function uswds_register_theme_hooks(&$registry, $theme) {
 
   // Iterate over all preprocess/process files in the current theme.
-  foreach (array('process', 'preprocess') as $type) {
+  foreach (['process', 'preprocess'] as $type) {
     $length = -(strlen($type) + 1);
 
     // Only look for files that match the 'something.preprocess.inc' pattern.

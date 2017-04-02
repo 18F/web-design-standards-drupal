@@ -15,7 +15,7 @@ function uswds_theme_suggestions_block_alter(array &$suggestions, array $variabl
   if (in_array('block__system_menu_block', $suggestions)) {
     if (!empty($variables['elements']['#id'])) {
       $block = Block::load($variables['elements']['#id']);
-      $menu_regions = array('primary_menu', 'secondary_menu', 'sidebar_first', 'footer_menu');
+      $menu_regions = ['primary_menu', 'secondary_menu', 'sidebar_first', 'footer_menu'];
       if (in_array($block->getRegion(), $menu_regions)) {
         $suggestions[] = 'block__system_menu_block__' . $block->getRegion();
       }

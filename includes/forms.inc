@@ -20,11 +20,11 @@ function _uswds_simple_form_fieldset(&$element, $legend_text) {
     '#markup' => '<fieldset><legend>' . $legend_text . '</legend>',
     '#allowed_tags' => ['fieldset', 'legend'],
   ];
-  $element['fieldset_end'] = array(
+  $element['fieldset_end'] = [
     '#weight' => 999,
     '#markup' => '</fieldset>',
     '#allowed_tags' => ['fieldset'],
-  );
+  ];
 }
 
 /**
