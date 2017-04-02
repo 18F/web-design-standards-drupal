@@ -29,7 +29,6 @@ function uswds_form_search_block_form_alter(&$form) {
   // Remove the "value" so that the search button is only the icon, but hack
   // around the submit button for accessibility reasons.
   $form['actions']['submit']['#value'] = '';
-  $form['actions']['submit']['#attributes']['style'][] = 'display:none;';
-  $form['actions']['submit']['#prefix'] = '<button type="submit"><span class="usa-sr-only">Search';
+  $form['actions']['submit']['#prefix'] = '<button type="submit"><span class="usa-sr-only">Search</span>';
   $form['actions']['submit']['#suffix'] = '</button>';
 }
