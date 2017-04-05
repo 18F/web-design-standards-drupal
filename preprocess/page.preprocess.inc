@@ -10,7 +10,7 @@
  */
 function uswds_preprocess_page(&$variables) {
   // Set the path to the base theme.
-  $variables['base_theme_path'] = drupal_get_path('theme', 'uswds');
+  $variables['base_theme_path'] = base_path() . drupal_get_path('theme', 'uswds');
 
   // Provide the agency information for the footer.
   $variables['display_footer_agency'] = theme_get_setting('uswds_footer_agency');
