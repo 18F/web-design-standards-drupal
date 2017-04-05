@@ -46,3 +46,16 @@ function _uswds_mark_side_navigation_items(&$element) {
     }
   }
 }
+
+/**
+ * Helper function to tell whether a menu tree is one-dimensional (flat).
+ */
+function _uswds_is_menu_tree_flat($tree) {
+  foreach (element_children($tree) as $key) {
+    $link = $tree[$key]['#original_link'];
+    if (1 != $link['depth'] || ($link['has_children'] && $link['expanded'])) {
+      return FALSE;
+    }
+  }
+  return TRUE;
+}
