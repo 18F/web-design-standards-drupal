@@ -63,7 +63,12 @@ function uswds_preprocess_page(&$variables) {
   }
 
   // Show the official U.S. Government banner?
-  $variables['government_banner'] = theme_get_setting('uswds_government_banner');
+  if (theme_get_setting('uswds_government_banner')) {
+    $variables['government_banner'] = [
+      '#theme' => 'government_banner',
+      '#image_base' => $variables['base_theme_path'] . '/assets/img',
+    ];
+  }
 
   // Decide on the type of footer.
   $variables['footer_style'] = 'usa-footer-' . theme_get_setting('uswds_footer_style');
