@@ -21,7 +21,7 @@ function uswds_form_search_block_form_alter(&$form) {
   $form['actions']['#suffix'] = '</div>';
 
   // Add javascript classes if this is the extended header.
-  if (USWDS_HEADER_STYLE_EXTENDED == theme_get_setting('uswds_header_style')) {
+  if ('extended' == theme_get_setting('uswds_header_style')) {
     $form['#attributes']['class'][] = 'js-search-form';
     $form['#attributes']['class'][] = 'usa-sr-only';
   }

@@ -54,8 +54,8 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
       '#required' => TRUE,
       '#title' => t('Choose a style of header to use'),
       '#options' => array(
-        USWDS_HEADER_STYLE_BASIC => t('Basic'),
-        USWDS_HEADER_STYLE_EXTENDED => t('Extended'),
+        'basic' => t('Basic'),
+        'extended' => t('Extended'),
       ),
       '#default_value' => theme_get_setting('uswds_header_style'),
     ),
@@ -81,9 +81,9 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
       '#required' => TRUE,
       '#title' => t('Choose a style of footer to use'),
       '#options' => array(
-        USWDS_FOOTER_STYLE_BIG => t('Big'),
-        USWDS_FOOTER_STYLE_MEDIUM => t('Medium'),
-        USWDS_FOOTER_STYLE_SLIM => t('Slim'),
+        'big' => t('Big'),
+        'medium' => t('Medium'),
+        'slim' => t('Slim'),
       ),
       '#default_value' => theme_get_setting('uswds_footer_style'),
     ),
@@ -94,7 +94,7 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
       ),
       '#states' => array(
         'visible' => array(
-          ':input[name="uswds_footer_style"]' => array('value' => USWDS_FOOTER_STYLE_BIG),
+          ':input[name="uswds_footer_style"]' => array('value' => 'big'),
         ),
       ),
     ),

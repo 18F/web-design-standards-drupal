@@ -162,7 +162,7 @@ function _uswds_theme_footer_menu_link($variables) {
   $element = $variables['element'];
 
   // The footer menu items are very different depending on the footer style.
-  $big = (USWDS_FOOTER_STYLE_BIG == theme_get_setting('uswds_footer_style'));
+  $big = ('big' == theme_get_setting('uswds_footer_style'));
 
   if (!$big) {
     $element['#attributes']['class'][] = 'usa-width-one-sixth';

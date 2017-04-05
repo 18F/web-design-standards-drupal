@@ -47,7 +47,7 @@ function uswds_preprocess_menu_tree(&$variables) {
         // Decide whether to include the search form.
         if (module_exists('search') && theme_get_setting('uswds_search')) {
           // If this is a basic header, we put the search form after the menu.
-          if (USWDS_HEADER_STYLE_BASIC == theme_get_setting('uswds_header_style')) {
+          if ('basic' == theme_get_setting('uswds_header_style')) {
             $search_form = drupal_get_form('search_block_form');
             $search_box = drupal_render($search_form);
             $variables['uswds_menu_suffix'] = $search_box;
@@ -65,7 +65,7 @@ function uswds_preprocess_menu_tree(&$variables) {
       // Decide whether to include the search form.
       if (module_exists('search') && theme_get_setting('uswds_search')) {
         // If this is an extended header, we put the search form before the menu.
-        if (USWDS_HEADER_STYLE_EXTENDED == theme_get_setting('uswds_header_style')) {
+        if ('extended' == theme_get_setting('uswds_header_style')) {
           $search_form = drupal_get_form('search_block_form');
           $search_box = drupal_render($search_form);
           $variables['uswds_menu_prefix'] .= $search_box;
