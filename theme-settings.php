@@ -4,7 +4,7 @@
  * Custom theme setting form elements for the USWDS theme.
  */
 
-include_once(__DIR__ . '/includes/uswds.constants.inc');
+include_once(__DIR__ . '/includes/constants.inc');
 
 /**
  * Implements hook_form_system_theme_settings_alter().
