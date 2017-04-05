@@ -54,8 +54,9 @@ function uswds_theme($existing, $type, $theme, $path) {
   return array(
     'government_banner' => array(
       'path' => $path . '/templates/uswds',
+      'template' => 'government-banner',
       'variables' => array(
-        'image_base' => array(),
+        'image_base' => NULL,
       ),
     ),
   );
