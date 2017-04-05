@@ -10,29 +10,13 @@
  */
 function uswds_form_user_login_alter(&$form) {
 
-  // For accessibility, wrap in fieldset.
-  _uswds_simple_form_fieldset($form, t('Sign in'));
-
   // Remove unnecessary help text.
   unset($form['name']['#description']);
   unset($form['pass']['#description']);
 
-  // Submit text consistent with page title.
-  $form['actions']['submit']['#value'] = t('Sign in');
-
   // Allow logging in with username OR email.
   $form['name']['#title'] = t('Username or email address');
   $form['name']['#element_validate'][] = '_uswds_user_login_validate';
-
-  // Add some helpful links.
-  $form['link_register'] = array(
-    '#weight' => -10,
-    '#markup' => '<span>' . t('or') . ' ' . l(t('create an account'), 'user/register') . '</span>',
-  );
-  $form['link_forgot_password'] = array(
-    '#weight' => 10,
-    '#markup' => '<p>' . l(t('Forgot password?'), 'user/password') . '</p>',
-  );
 }
 
 /**
