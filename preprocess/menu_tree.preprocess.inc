@@ -35,6 +35,22 @@ function uswds_preprocess_menu_tree(&$variables) {
     case USWDS_MENU_REGION_PRIMARY:
       // Our low-tech way of identifying a submenu here.
       $is_submenu = (strpos($variables['tree'], 'usa-accordion-button') === FALSE);
+
+      // Catch the case where the primary navigation is totally flat.
+      if ($is_submenu) {
+        $flat_menu = TRUE;
+        foreach (element_children($variables['#tree']) as $key) {
+          $original_link = $variables['#tree'][$key]['#original_link'];
+          if (1 != $original_link['depth'] || $original_link['has_children']) {
+            $flat_menu = FALSE;
+            break;
+          }
+        }
+        if ($flat_menu) {
+          $is_submenu = FALSE;
+        }
+      }
+
       if ($is_submenu) {
         // If this is a submenu, the wrapper will be handled in our override of
         // theme_menu_link, so only output the tree itself here.
