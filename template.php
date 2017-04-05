@@ -125,3 +125,17 @@ function _uswds_mark_side_navigation_items(&$element) {
     }
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function uswds_theme($existing, $type, $theme, $path) {
+  return array(
+    'government_banner' => array(
+      'path' => $path . '/templates/uswds',
+      'variables' => array(
+        'image_base' => array(),
+      ),
+    ),
+  );
+}
