@@ -61,6 +61,12 @@ function uswds_preprocess_page(&$variables) {
   if (theme_get_setting('uswds_header_mega')) {
     $variables['header_classes'] .= ' ' . $variables['header_style'] . '-megamenu';
   }
+  if (theme_get_setting('uswds_government_banner')) {
+    $variables['government_banner'] = array(
+      '#theme' => 'government_banner',
+      '#image_base' => $variables['base_theme_path'] . '/assets/img',
+    );
+  }
   // And some helpful flags for the header.
   $variables['header_basic'] = ('usa-header-basic' == $variables['header_style']);
   $variables['header_extended'] = ('usa-header-extended' == $variables['header_style']);

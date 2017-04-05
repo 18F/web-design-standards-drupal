@@ -113,11 +113,16 @@
 
   <header class="<?php print $header_classes ?>" id="header" role="banner">
 
-    <?php if ($page['header_top']): ?>
+    <?php if ($page['header_top'] || $government_banner): ?>
     <section class="usa-banner">
+      <?php if ($government_banner): ?>
+        <?php print render($government_banner) ?>
+      <?php endif; ?>
+      <?php if ($page['header_top']): ?>
       <div class="usa-banner-inner">
         <?php print render($page['header_top']); ?>
       </div>
+      <?php endif; ?>
     </section>
     <?php endif; ?>
 

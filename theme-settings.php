@@ -65,6 +65,11 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
       '#description' => t('Site building note: Megamenus require hierarchical three-level menus, where the second level of menu items is not rendered, but instead is used to determine the "columns" for the megamenu.'),
       '#default_value' => theme_get_setting('uswds_header_mega'),
     ),
+    'uswds_government_banner' => array(
+      '#type' => 'checkbox',
+      '#title' => t('Display the official U.S. government banner at the top of each page?'),
+      '#default_value' => theme_get_setting('uswds_government_banner'),
+    ),
   );
 
   // Footer style.
