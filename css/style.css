@@ -74,3 +74,12 @@ label.visually-hidden + input[type=checkbox] {
   margin: 0;
   padding: 1.5rem 5.5rem 1.5rem 3rem;
 }
+
+/* The focus outline of the logo images needs some help. */
+.usa-footer-logo > a,
+.usa-logo .logo-img {
+  display: inline-block;
+}
+.usa-logo .logo-img img {
+  vertical-align: top;
+}
