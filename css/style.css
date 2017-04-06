@@ -83,3 +83,8 @@ label.visually-hidden + input[type=checkbox] {
 .usa-logo .logo-img img {
   vertical-align: top;
 }
+
+/* Draggable tables need some help. */
+.draggable a.tabledrag-handle {
+  box-sizing: content-box;
+}
