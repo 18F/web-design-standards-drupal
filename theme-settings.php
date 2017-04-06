@@ -13,38 +13,6 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
   $menu_options[USWDS_MENU_NONE] = t('-- None --');
   $menu_options += menu_get_menus();
 
-  // Menu settings.
-  $form['uswds_menu_fieldset'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('USWDS menu settings'),
-  );
-
-  // Some help text about primary/secondary menus.
-  $form['uswds_menu_fieldset']['menu-help'] = array(
-    '#markup' => t('NOTE: To set sources for your primary and secondary navigation, go to !link.', array(
-      '!link' => l('/admin/structure/menu/settings', 'admin/structure/menu/settings')
-    )),
-  );
-
-  // The footer menu.
-  $form['uswds_menu_fieldset'][USWDS_MENU_REGION_FOOTER] = array(
-    '#type' => 'select',
-    '#options' => $menu_options,
-    '#title' => t('Footer menu'),
-    '#default_value' => theme_get_setting(USWDS_MENU_REGION_FOOTER),
-    '#description' => t('Choose a menu to treat as the footer menu.'),
-  );
-
-  // Whether to display the search bar in the secondary menu.
-  $form['uswds_menu_fieldset']['uswds_search'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Display a search form in the primary navigation area?'),
-    '#default_value' => theme_get_setting('uswds_search'),
-  );
-  if (!module_exists('search')) {
-    $form['uswds_menu_fieldset']['uswds_search']['#description'] = t('Requires the core Search module to be enabled.');
-  }
-
   // Header style.
   $form['header_style_fieldset'] = array(
     '#type' => 'fieldset',
@@ -59,6 +27,11 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
       ),
       '#default_value' => theme_get_setting('uswds_header_style'),
     ),
+    'menu-help' => array(
+      '#markup' => t('NOTE: To set sources for your primary and secondary navigation, go to !link.', array(
+        '!link' => l('/admin/structure/menu/settings', 'admin/structure/menu/settings')
+      )),
+    ),
     'uswds_header_mega' => array(
       '#type' => 'checkbox',
       '#title' => t('Use megamenus in the header?'),
@@ -72,10 +45,27 @@ function uswds_form_system_theme_settings_alter(&$form, $form_state) {
     ),
   );
 
+  // Whether to display the search bar in the secondary menu.
+  $form['header_style_fieldset']['uswds_search'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Display a search form in the primary navigation area?'),
+    '#default_value' => theme_get_setting('uswds_search'),
+  );
+  if (!module_exists('search')) {
+    $form['header_style_fieldset']['uswds_search']['#description'] = t('Requires the core Search module to be enabled.');
+  }
+
   // Footer style.
   $form['footer_style_fieldset'] = array(
     '#type' => 'fieldset',
     '#title' => t('Footer settings'),
+    USWDS_MENU_REGION_FOOTER => array(
+      '#type' => 'select',
+      '#options' => $menu_options,
+      '#title' => t('Footer menu'),
+      '#default_value' => theme_get_setting(USWDS_MENU_REGION_FOOTER),
+      '#description' => t('Choose a menu to treat as the footer menu.'),
+    ),
     'uswds_footer_style' => array(
       '#type' => 'select',
       '#required' => TRUE,
