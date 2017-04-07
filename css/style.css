@@ -85,6 +85,6 @@ label.visually-hidden + input[type=checkbox] {
 }
 
 /* Draggable tables need some help. */
-.draggable a.tabledrag-handle {
+.tabledrag-handle {
   box-sizing: content-box;
 }
