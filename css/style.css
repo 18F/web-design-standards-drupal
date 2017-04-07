@@ -85,9 +85,7 @@ ul.tabs.secondary {
 }
 
 /* Draggable tables need to be moved left. */
-.tabledrag-processed a.tabledrag-handle {
-  margin-left: -1.5em;
-  width: 1.5em;
+.tabledrag-handle {
   box-sizing: content-box;
 }
 
