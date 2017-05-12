@@ -1,15 +1,16 @@
-# U.S. Web Design Standards – Drupal theme
+# U.S. Web Design Standards (USWDS)
 
-**Current status:** Usable, but still under development.
+Drupal integration of the [U.S. Web Design Standards](https://standards.usa.gov/) library.
 
-**Context:** https://github.com/18F/web-design-standards/issues/852
+This base theme focuses on tweaking Drupal's markup so that it will work with the USWDS library. Some CSS is added to deal with unavoidable Drupal quirks, but only as a last resort.
 
-**USWDS library:** The full compiled USWDS library is in the /assets folder.
+The theme makes no assumptions about how you would like to add site-specific CSS. You can either:
 
-### Public domain
+1. use normal CSS files loaded after the pre-compiled USWDS library, or
+2. use npm to include the USWDS Sass source files in your own front-end workflow
 
-This project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
+You can either use this theme directly, or copy /examples/my_subtheme out as subtheme, following the instructions in /exmaples/my_subtheme/README.md.
 
-> This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
->
-> All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
+After installation, see the theme settings inside Drupal for various customizations, like configuring the header, footer, and menus.
+
+Note: This code was originally forked from [this repository](https://github.com/18F/web-design-standards-drupal), and was split off at 18F's suggestion. It is now maintained [here](https://www.drupal.org/project/uswds).
