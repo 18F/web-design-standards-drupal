@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * USWDS theme implementation for status messages.
+ */
+#}
+{% for type, messages in message_list %}
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+    {% if type == 'error' %}
+      <div class="usa-alert usa-alert-error">
+    {% elseif type == 'warning' %}
+      <div class="usa-alert usa-alert-warning">
+    {% elseif type == 'status' %}
+      <div class="usa-alert usa-alert-success">
+    {% endif %}
+      <div class="usa-alert-body">
+      {% if status_headings[type] %}
+        <h3 class="usa-alert-heading">{{ status_headings[type] }}</h3>
+      {% endif %}
+      {% if messages|length > 1 %}
+        <ul>
+          {% for message in messages %}
+            <li class="usa-alert-text">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="usa-alert-text">
+          {{ messages|first }}
+        </p>
+      {% endif %}
+    {% if type == 'error' or type == 'warning' or type == 'status' %}
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}

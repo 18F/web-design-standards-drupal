@@ -1,0 +1,24 @@
+name: U.S. Web Design Standards
+type: theme
+description: 'A base theme implementing the U.S. Web Design Standards.'
+core: 8.x
+version: 1.0.0
+libraries:
+  - uswds/uswds
+  - uswds/drupal
+libraries-override:
+  core/drupal.collapse: false
+regions:
+  header_top: 'Above Header'
+  header: 'Header'
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  sidebar_first: 'First sidebar'
+  sidebar_second: 'Second sidebar'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  footer_menu: 'Footer Menu'
+  footer: 'Primary Footer'
+  footer_secondary: 'Secondary Footer'

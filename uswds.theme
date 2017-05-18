@@ -1,0 +1,25 @@
+<?php
+
+require_once dirname(__FILE__) . '/includes/base_themes.inc';
+require_once dirname(__FILE__) . '/includes/menus.inc';
+require_once dirname(__FILE__) . '/includes/forms.inc';
+
+// Load form alter hooks from the /form directory.
+$files = file_scan_directory(dirname(__FILE__) . '/form', "/.form.inc/");
+foreach ($files as $filepath => $file) {
+  require_once $filepath;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function uswds_theme($existing, $type, $theme, $path) {
+  return [
+    'government_banner' => [
+      'path' => $path . '/templates/uswds',
+      'variables' => [
+        'image_base' => [],
+      ],
+    ],
+  ];
+}

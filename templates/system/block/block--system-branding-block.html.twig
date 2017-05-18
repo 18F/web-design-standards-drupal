@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a branding block.
+ *
+ * Each branding element variable (logo, name, slogan) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="usa-logo" id="logo">
+
+  {% if site_logo %}
+  <a class="logo-img" href="{{ path('<front>') }}" accesskey="1" title="{{ 'Home'|t }}" aria-label="Home">
+    <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+  </a>
+  {% endif %}
+
+  {% if site_name %}
+  <em class="usa-logo-text">
+    <a href="{{ path('<front>') }}" accesskey="1" title="{{ 'Home'|t }}" aria-label="Home">
+      {{ site_name }}
+    </a>
+  </em>
+  {% endif %}
+
+  {% if site_slogan %}
+    <h2 class="usa-font-lead">{{ site_slogan }}</h2>
+  {% endif %}
+
+</div>

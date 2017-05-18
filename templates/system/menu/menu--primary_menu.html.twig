@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Override of system/menu.html.twig for the primary menu.
+ */
+#}
+
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ search_form }}
+{{ menus.menu_links(items, 0, megamenu, 0) }}
+
+{% macro menu_links(items, menu_level, megamenu, button_id) %}
+  {% import _self as menus %}
+
+  {% if items %}
+
+    {% if menu_level == 0 %}
+      <ul class="usa-nav-primary usa-accordion" role="navigation">
+    {% elseif menu_level == 1 %}
+      <ul id="megamenu-{{ button_id }}" class="usa-nav-submenu{% if megamenu %} usa-megamenu usa-grid-full{% endif %}">
+    {% else %}
+      <ul>
+    {% endif %}
+
+    {% for item in items %}
+      <li{% if megamenu and menu_level == 1 and item.below %} class="usa-megamenu-col"{% endif %}>
+
+        {% if menu_level == 0 and item.below %}
+          <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="megamenu-{{ loop.index }}">
+            <span>{{ item.title }}</span>
+          </button>
+        {% endif %}
+
+        {% if item.below and menu_level < 3 %}
+          {{ menus.menu_links(item.below, menu_level + 1, megamenu, loop.index) }}
+        {% else %}
+          <a href="{{ item.url }}"{% if menu_level == 0 %} class="usa-nav-link"{% endif %}>
+            <span>{{ item.title }}</span>
+          </a>
+        {% endif %}
+
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

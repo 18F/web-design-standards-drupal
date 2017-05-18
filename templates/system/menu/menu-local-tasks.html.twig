@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * USWDS theme implementation to display primary and secondary local tasks.
+ */
+#}
+{% if primary %}
+  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
+  <ul class="usa-unstyled-list uswds-horizontal-list">{{ primary }}</ul>
+{% endif %}
+{% if secondary %}
+  <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
+  <ul class="usa-unstyled-list uswds-horizontal-list">{{ secondary }}</ul>
+{% endif %}
