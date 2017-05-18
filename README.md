@@ -1,13 +1,7 @@
-# U.S. Web Design Standards – Drupal theme
+# U.S. Web Design Standards (USWDS)
 
-**Current status:** very much a work in progress.
+**Status**
 
-**Context:** https://github.com/18F/web-design-standards/issues/852
+This fork is no longer being updated, and the upstream repo is not maintained.
 
-### Public domain
-
-This project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
-
-> This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
->
-> All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
+The latest work is going on here: https://www.drupal.org/project/uswds

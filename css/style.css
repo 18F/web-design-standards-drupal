@@ -1,7 +1,142 @@
-html {
-  box-sizing: border-box;
+/**
+ * CSS in this file should be limited to:
+ * - fixing incompatibilities between USWDS and Drpual
+ * - adding minimal styling of Drupal elements that are missed by USWDS
+ *
+ * @TODO: Keep an eye on this file, and if it gets out of control, switch to
+ * Sass development.
+ */
+
+/* Fix the styling of local tasks. */
+ul.tabs.primary, ul.tabs.secondary {
+  list-style-type: none;
+  padding-left: 0;
+}
+ul.tabs.primary li, ul.tabs.secondary li {
+  float: left;
+  margin-right: 1em;
+}
+ul.tabs.secondary {
+  clear: both;
 }
 
-*, *::after, *::before {
-  box-sizing: inherit;
+/* Fix the styling of form submit buttons. */
+.form-actions {
+  clear: both;
+}
+.form-actions input {
+  float: left;
+}
+
+/* The navigation z-index of 9000 causes issues (like with admin_menu). */
+.usa-nav {
+  z-index: 599;
+}
+
+/* Since there are no breadcrumb guidelines in USWDS yet, add something here. */
+.breadcrumb a {
+  color: #5b616b;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: #0071bc;
+}
+
+/* The focus outline of the logo image needs some help. */
+.usa-logo .logo-img img {
+  vertical-align: top;
+}
+
+/* The logo image messes up responsiveness when the navigation collapses. */
+.usa-logo .logo-img {
+  display: none;
+}
+@media screen and (min-width: 951px) {
+  .usa-logo .logo-img {
+    display: inline-block;
+  }
+}
+
+/* The first sidebar blocks get pushed down too far because of the H2. */
+.region-sidebar-first .block:first-child > h2,
+.region-sidebar-second .block:first-child > h2 {
+  margin-top: 0.3em;
+}
+
+/* The core search page needs some tweaking. */
+.page-search .search-form .form-item-keys label {
+  display: block;
+}
+.page-search .search-form .form-text {
+  float: left;
+}
+.page-search .search-form .form-wrapper > .form-submit {
+  margin-top: 0;
+}
+.page-search .search-form .search-advanced legend {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Node teasers don't need so much margin above the title. */
+.node-teaser > h2 {
+  margin-top: 0.3em;
+}
+
+/* Draggable tables need to be moved left. */
+.tabledrag-handle {
+  box-sizing: content-box;
+}
+
+/* Fallback to normal appearance for checkboxes that don't have labels, or have
+ * hidden labels. */
+input[type=checkbox]:only-child,
+label.element-invisible + input[type=checkbox] {
+  position: static;
+  opacity: 1;
+  appearance: checkbox;
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  height: 1.5em;
+  width: 1.5em;
+  margin: 0;
+}
+
+/* Help with selects in tables */
+table select {
+  width: auto;
+}
+
+/* Fieldset tweaks because we are putting fieldset buttons inside legends. */
+.usa-accordion > ul > li > fieldset > legend,
+.usa-accordion-bordered > ul > li > fieldset > legend {
+  width: 100%;
+}
+.usa-accordion > ul > li > fieldset > legend > button,
+.usa-accordion-bordered > ul > li > fieldset > legend > button {
+ line-height: inherit;
+}
+
+/* Normal Drupal fieldsets just need help. */
+fieldset.form-wrapper legend {
+  padding-top: 30px;
+}
+
+/* Some help for vertical tabs (which we render as accordions). */
+.uswds-vertical-tabs {
+  margin-top: 3rem;
+}
+
+/* We use the info alert style for the Help region. */
+.usa-alert-info {
+  margin-bottom: 3rem;
+}
+
+/* Prevent issues caused by Views admin CSS. */
+.usa-search .container-inline > * + * {
+  padding-left: 0;
+}
+.usa-search .container-inline {
+  padding-top: 0;
 }
