@@ -1,8 +1,9 @@
-# U.S. Web Design Standards – Drupal theme
+# U.S. Web Design System – Drupal theme
 
-**Current status:** very much a work in progress. Branches are being developed simultaneously for Drupal 7 and 8. For further details, see the [waffle.io board](https://waffle.io/18F/web-design-standards-drupal).
+**This project has moved to drupal.org:** https://www.drupal.org/project/uswds
 
-[![Stories in Ready](https://badge.waffle.io/18F/web-design-standards-drupal.png?label=ready&title=Ready)](http://waffle.io/18F/web-design-standards-drupal)
+---
+**Current status:** Archived. Previously, branches were being developed simultaneously for Drupal 7 and 8. For further details, see the [waffle.io board](https://waffle.io/18F/web-design-standards-drupal).
 
 **Background:**
 As of 2012, an estimated 24 percent of U.S. government websites (including whitehouse.gov, most famously) were Drupal sites. That number has only continued to increase.
