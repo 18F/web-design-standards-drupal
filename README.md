@@ -1,8 +1,9 @@
-# U.S. Web Design System – Drupal theme
-
-**This project has moved to drupal.org:** https://www.drupal.org/project/uswds
+# This repository has been archived and deprecated.
+**For current updates, please see https://www.drupal.org/project/uswds.** 
 
 ---
+# U.S. Web Design System – Drupal theme
+
 **Current status:** Archived. Previously, branches were being developed simultaneously for Drupal 7 and 8. For further details, see the [waffle.io board](https://waffle.io/18F/web-design-standards-drupal).
 
 **Background:**
